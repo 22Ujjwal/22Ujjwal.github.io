@@ -2,4 +2,4 @@
 Using HTML, CSS and Javascript!
 Surprisingly this is my first implementing javascript :)) happy learning and implementing
 
-Consist of cdd, files folder
+Consist of cdd, files and images folder
