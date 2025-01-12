@@ -1,5 +1,7 @@
-# 22Ujjwal.github.io
-Using HTML, CSS and Javascript!
-Surprisingly this is my first implementing javascript :)) happy learning and implementing
+# 22Ujjwal.github.io coming Live soon!
 
-Consist of folders name: cdd, files, js and images 
+Using $${\color{orange}HTML}$$ , $${\color{darkblue}CSS}$$ and $${\color{green}JavaScript}$$!
+
+Surprisingly this is my first project implementing javascript :)) happy learning 
+
+Consist of folders name: **css, files, js and images** 
