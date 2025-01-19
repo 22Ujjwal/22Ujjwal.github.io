@@ -6,4 +6,4 @@ Surprisingly this is my first project implementing javascript :)) happy learning
 
 Consist of folders name: **css, files, js and images** 
 
-Sections include: Introduction, Resume, Expertise
+Sections include: Introduction, Resume, Expertise, Projects, 
