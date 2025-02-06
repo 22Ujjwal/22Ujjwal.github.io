@@ -1,6 +1,6 @@
 # Website coming Live soon!
 
-Using $${\color{orange}HTML}$$ , $${\color{darkblue}CSS}$$ and $${\color{green}JavaScript}$$!
+Using $${\color{orange}HTML}$$ , $${\color{darkblue}CSS}$$, $${\color{red}React}$$, $${\color{Violet}Node.js}$$ and $${\color{green}TypeScript-JavaScript}$$!
 
 Surprisingly this is my first project implementing javascript :)) happy learning
 
