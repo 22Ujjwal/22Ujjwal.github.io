@@ -1,5 +1,26 @@
 {
   "dependencies": {
     "three": "^0.175.0"
-  }
+  },
+  "name": "22ujjwal.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/22Ujjwal/22Ujjwal.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/22Ujjwal/22Ujjwal.github.io/issues"
+  },
+  "homepage": "https://github.com/22Ujjwal/22Ujjwal.github.io#readme",
+  "description": ""
 }
