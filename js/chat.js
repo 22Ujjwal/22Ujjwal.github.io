@@ -17,12 +17,16 @@ const SYSTEM_PROMPT = `You are Ujjwal's AI assistant. Your role is to:
 7. Redirect off-topic questions back to Ujjwal's professional background`;
 
 // Add message to chat
-function addMessage(content, isUser = false, isEmoji = false) {
+function addMessage(content, isUser = false, isEmoji = false, isError = false) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${isUser ? 'user' : 'assistant'}`;
     
     const messageContent = document.createElement('div');
     messageContent.className = 'message-content';
+    
+    if (isError) {
+        messageContent.style.color = '#ff4c4c';
+    }
     
     if (isEmoji) {
         const emoji = document.createElement('img');
@@ -41,6 +45,33 @@ function addMessage(content, isUser = false, isEmoji = false) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+// Add typing indicator
+function addTypingIndicator() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message assistant typing-indicator';
+    typingDiv.id = 'typing-indicator';
+    
+    const typingContent = document.createElement('div');
+    typingContent.className = 'message-content';
+    
+    const dots = document.createElement('div');
+    dots.className = 'typing-dots';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    
+    typingContent.appendChild(dots);
+    typingDiv.appendChild(typingContent);
+    chatMessages.appendChild(typingDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Remove typing indicator
+function removeTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
+    }
+}
+
 // Handle user input
 async function handleUserInput() {
     const message = userInput.value.trim();
@@ -49,6 +80,13 @@ async function handleUserInput() {
     // Add user message to chat
     addMessage(message, true);
     userInput.value = '';
+    
+    // Disable input while processing
+    userInput.disabled = true;
+    sendButton.disabled = true;
+    
+    // Show typing indicator
+    addTypingIndicator();
     
     try {
         // Get the current URL to determine if we're using localhost or production
@@ -75,27 +113,57 @@ async function handleUserInput() {
             })
         });
         
+        // Remove typing indicator
+        removeTypingIndicator();
+        
         if (!response.ok) {
-            const errorData = await response.json();
-            console.error('API error:', errorData);
-            throw new Error(`API error: ${errorData.error || 'Unknown error'}`);
+            let errorMessage = "I apologize, but I'm having trouble connecting right now. Please try again later.";
+            try {
+                const errorData = await response.json();
+                console.error('API error:', errorData);
+                
+                if (errorData.error === 'Error from Gemini API') {
+                    errorMessage = "I apologize, but there was an issue with the AI service. Please try again later.";
+                } else if (errorData.error === 'Rate limit exceeded') {
+                    errorMessage = "I'm receiving too many messages right now. Please try again in a minute.";
+                }
+            } catch (e) {
+                console.error('Error parsing error response:', e);
+            }
+            
+            addMessage(errorMessage, false, false, true);
+            return;
         }
         
         const data = await response.json();
+        
+        if (!data.candidates || data.candidates.length === 0 || !data.candidates[0].content || !data.candidates[0].content.parts) {
+            addMessage("I apologize, but I couldn't generate a response. Please try again with a different question.", false, false, true);
+            return;
+        }
+        
         const aiResponse = data.candidates[0].content.parts[0].text;
         
         // Add AI response to chat
         addMessage(aiResponse);
     } catch (error) {
         console.error('Error:', error);
-        addMessage("I apologize, but I'm having trouble connecting right now. Please try again later.");
+        // Remove typing indicator if it exists
+        removeTypingIndicator();
+        addMessage("I apologize, but I'm having trouble connecting right now. Please try again later.", false, false, true);
+    } finally {
+        // Re-enable input
+        userInput.disabled = false;
+        sendButton.disabled = false;
+        userInput.focus();
     }
 }
 
 // Event listeners
 sendButton.addEventListener('click', handleUserInput);
 userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
         handleUserInput();
     }
 });
