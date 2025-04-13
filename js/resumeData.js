@@ -4,7 +4,7 @@ const resumeData = {
   basics: {
     name: "Ujjwal Gupta",
     headline: "Computer Science Student & AI Enthusiast",
-    summary: "Computer Science student at UT Dallas with expertise in AI/ML, augmented reality, and data analysis. Known for collaborative leadership and creative problem-solving skills. Recently won 3rd Best Software award at TAMUHack 2025.",
+    summary: "Computer Science student at UT Dallas with expertise in AI/ML, augmented reality, and data analysis. Known for collaborative leadership and creative problem-solving skills. Recently won Best Software award at TAMUHack 2025.",
     location: "Dallas, TX",
     funFacts: [
       "Won 3rd Best Software award at TAMUHack 2025",
@@ -68,10 +68,10 @@ const resumeData = {
     },
     {
       institution: "Texas A&M University, College Station",
-      degree: "General Engineering, BS Computer Science",
+      degree: "BS Computer Science",
       status: "Sophomore",
       expectedGraduation: "Dec 2024",
-      activities: "Corps of Cadets, Google Developers Group, Blockchain Association"
+      activities: "Corps of Cadets, Google Developers Group, TAMU Blockchain Club, Aggie Data Science Society, Aggie Coding club, International Student club, Hindu Yuva"
     }
   ],
 
@@ -97,7 +97,7 @@ const resumeData = {
       ]
     },
     {
-      position: "Supervisor (Part-time)",
+      position: "Supervisor",
       company: "Rupali Real Estates",
       duration: "Jun 2021 - Jun 2023",
       highlights: [
