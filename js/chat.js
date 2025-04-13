@@ -157,7 +157,6 @@ async function handleUserInput() {
                 addMessage("I'm here to help you learn about Ujjwal's professional background and skills. I can't respond to that type of request, but I'd be happy to tell you about his projects, experience, or education. What would you like to know?");
                 userInput.disabled = false;
                 sendButton.disabled = false;
-                userInput.focus();
             }, 1500);
             return;
         }
@@ -186,7 +185,6 @@ async function handleUserInput() {
                 addMessage(directResponse);
                 userInput.disabled = false;
                 sendButton.disabled = false;
-                userInput.focus();
             }, 1500);
             return;
         }
@@ -257,7 +255,6 @@ async function handleUserInput() {
         // Re-enable input
         userInput.disabled = false;
         sendButton.disabled = false;
-        userInput.focus();
     }
 }
 
@@ -272,7 +269,6 @@ userInput.addEventListener('keypress', (e) => {
 
 // Focus input on load
 window.addEventListener('load', () => {
-    userInput.focus();
     
     // Initialize first message
     setTimeout(() => {
