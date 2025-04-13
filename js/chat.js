@@ -1,5 +1,5 @@
 // Gemini AI Chat Configuration
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY'; // Replace with your actual API key
+// No API key here - it's handled securely by the server
 
 // Chat messages container
 const chatMessages = document.getElementById('chat-messages');
@@ -51,8 +51,17 @@ async function handleUserInput() {
     userInput.value = '';
     
     try {
+        // Get the current URL to determine if we're using localhost or production
+        const isLocalhost = window.location.hostname === 'localhost' || 
+                            window.location.hostname === '127.0.0.1';
+        
+        // Use the appropriate API endpoint based on environment
+        const apiUrl = isLocalhost 
+            ? 'http://localhost:3000/api/gemini'  // Local development server
+            : '/api/gemini';                     // Production/Vercel
+        
         // Call our secure endpoint
-        const response = await fetch('/api/gemini', {
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -65,6 +74,12 @@ async function handleUserInput() {
                 }]
             })
         });
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('API error:', errorData);
+            throw new Error(`API error: ${errorData.error || 'Unknown error'}`);
+        }
         
         const data = await response.json();
         const aiResponse = data.candidates[0].content.parts[0].text;
