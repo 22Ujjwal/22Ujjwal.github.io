@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Load environment variables
 dotenv.config();
@@ -19,7 +18,15 @@ if (!process.env.GEMINI_API_KEY) {
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('./'));
+
+// Serve static files with proper MIME types for ES modules
+app.use(express.static('./', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript; charset=UTF-8');
+    }
+  }
+}));
 
 // API Endpoint
 app.post('/api/gemini', async (req, res) => {
