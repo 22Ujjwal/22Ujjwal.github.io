@@ -8,8 +8,8 @@ const resumeData = {
     location: "Dallas, TX",
     funFacts: [
       "Won 3rd Best Software award at TAMUHack 2025",
-      "Served as Best Freshman Cadet in the Texas A&M Corps of Cadets",
-      "Led developer teams across multiple organizations"
+      "Served as a Cadet in the Texas A&M Corps of Cadets and won Best Freshman Cadet Award",
+      "Like to build projects and led teams as a lead software developer across multiple organizations"
     ]
   },
 
@@ -38,7 +38,7 @@ const resumeData = {
       name: "Ted Med - Georgia Tech Hacklytics",
       description: "Built an AI-powered robot with Computer Vision and Speech Analytics, achieving 92% emotion recognition accuracy and improved interaction effectiveness by 30%.",
       technologies: ["RAG", "LangChain", "OpenAI", "RoBERTa", "Gemini", "Whisper", "ElevenLabs", "OpenCV", "YOLO", "CNNs"],
-      highlight: "Achieved 92% emotion recognition accuracy through speech modulation",
+      highlight: "Achieved 92% emotion recognition accuracy through vision and speech modulation build by Ujjwal",
       date: "Feb 2025"
     },
     {
@@ -49,10 +49,10 @@ const resumeData = {
       date: "Jul 2024"
     },
     {
-      name: "TAMUhack 2025 Project",
+      name: "DJ Bestie ",
       description: "Developed software solution that won 3rd Best Software award at TAMUhack 2025.",
       technologies: ["Machine Learning", "Web Development"],
-      highlight: "Recognized as 3rd Best Software at TAMUhack 2025",
+      highlight: "Recognized as Best Software at TAMUhack 2025",
       date: "Jan 2025"
     }
   ],
