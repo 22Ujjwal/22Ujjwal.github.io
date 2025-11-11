@@ -1,0 +1,27 @@
+# Jekyll configuration for GitHub Pages build
+# This site is primarily deployed on Vercel; this config prevents Jekyll
+# from traversing non-static directories like Python venv or node_modules.
+
+# Basic site metadata (optional)
+name: "Ujjwal Gupta Portfolio"
+description: "Personal portfolio and AI assistant"
+
+# Do not process these paths
+exclude:
+  - node_modules/
+  - venv/
+  - .git/
+  - .github/
+  - package.json
+  - package-lock.json
+  - server.js
+  - api/
+  - vercel.json
+  - requirements-test.txt
+  - setup.sh
+  - test_local.py
+  - README_SETUP.txt
+
+# Keep default source and destination
+source: .
+destination: ./_site
