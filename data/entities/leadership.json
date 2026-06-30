@@ -1,12 +1,24 @@
 [
   {
+    "id": "lead:databricks",
+    "type": "leadership",
+    "label": "Databricks Student Fellow",
+    "properties": {
+      "position": "Student Fellow",
+      "organization": "Databricks",
+      "duration": "2025 - Present",
+      "achievement": "Selected for enterprise data and AI engineering cohort (<0.01% acceptance rate). Access to Databricks platform, curriculum, and industry mentorship."
+    }
+  },
+  {
     "id": "lead:gdg",
     "type": "leadership",
     "label": "President, Google Developers Group at TAMU",
     "properties": {
       "position": "President",
       "organization": "Google Developers Group at TAMU",
-      "duration": "Jul 2024 - Present"
+      "duration": "Jul 2024 - Present",
+      "achievement": "Led team of 12 student organizers, coordinated technical events and workshops"
     }
   },
   {

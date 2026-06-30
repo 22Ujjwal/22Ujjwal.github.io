@@ -327,7 +327,9 @@
       content.classList.add('hidden');
 
       try {
-        const res = await fetch('/api/logs?password=' + encodeURIComponent(password));
+        const res = await fetch('/api/logs', {
+          headers: { 'Authorization': 'Bearer ' + password }
+        });
 
         if (res.status === 401) {
           showStatus('Invalid password.', 'error');

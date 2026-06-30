@@ -6,11 +6,37 @@
 
 export const config = { runtime: 'edge' };
 
+const ALLOWED_ORIGIN = process.env.ADMIN_ALLOWED_ORIGIN || 'https://ujjwalgupta22.vercel.app';
+
 const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
+
+const ADMIN_RATE_LIMIT_MAX = 10;
+const ADMIN_RATE_LIMIT_WINDOW_SEC = 60;
+
+// ---------------------------------------------------------------------------
+// Timing-safe string comparison (constant-time to prevent timing attacks)
+// ---------------------------------------------------------------------------
+
+function timingSafeEqual(a, b) {
+  if (typeof a !== 'string' || typeof b !== 'string') return false;
+  const encoder = new TextEncoder();
+  const bufA = encoder.encode(a);
+  const bufB = encoder.encode(b);
+  if (bufA.byteLength !== bufB.byteLength) {
+    // Compare against self to burn same time, then return false
+    crypto.subtle && void 0;
+    let x = 0;
+    for (let i = 0; i < bufA.byteLength; i++) x |= bufA[i] ^ bufA[i];
+    return false;
+  }
+  let diff = 0;
+  for (let i = 0; i < bufA.byteLength; i++) diff |= bufA[i] ^ bufB[i];
+  return diff === 0;
+}
 
 // ---------------------------------------------------------------------------
 // KV helpers
@@ -64,12 +90,43 @@ export default async function handler(request) {
     });
   }
 
-  // Authenticate
-  const url = new URL(request.url);
-  const password = url.searchParams.get('password');
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  // Rate limit admin by IP
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || request.headers.get('x-real-ip')
+    || 'unknown';
 
-  if (!adminPassword || password !== adminPassword) {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const rlKey = `ratelimit:admin:${ip}`;
+      const rlUrl = `${process.env.KV_REST_API_URL}`;
+      const rlBody = JSON.stringify(['INCR', rlKey]);
+      const rlRes = await fetch(rlUrl, { method: 'POST', headers: kvHeaders(), body: rlBody });
+      if (rlRes.ok) {
+        const rlData = await rlRes.json();
+        const count = rlData.result;
+        if (count === 1) {
+          await fetch(rlUrl, {
+            method: 'POST',
+            headers: kvHeaders(),
+            body: JSON.stringify(['EXPIRE', rlKey, ADMIN_RATE_LIMIT_WINDOW_SEC]),
+          });
+        }
+        if (count > ADMIN_RATE_LIMIT_MAX) {
+          return new Response(JSON.stringify({ error: 'Too many requests' }), {
+            status: 429,
+            headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+          });
+        }
+      }
+    } catch {}
+  }
+
+  // Authenticate via Authorization header (timing-safe)
+  const authHeader = request.headers.get('Authorization') || '';
+  const password = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : '';
+  const adminPassword = process.env.ADMIN_PASSWORD || '';
+
+  if (!adminPassword || !timingSafeEqual(password, adminPassword)) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
       status: 401,
       headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },

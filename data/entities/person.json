@@ -11,10 +11,23 @@
     "github": "https://github.com/22Ujjwal",
     "personality": ["Outgoing", "People-oriented", "Responsible", "Driven"],
     "funFacts": [
-      "Won Overall at HackSMU 2026, TAMUHack 2025, and Best Software at Headstarter Hack 2025",
+      "4x hackathon winner — HackSMU Overall (2026), TAMUHack Overall (2025), Headstarter Best Software (2025), Headstarter Best Startup W3 (2025)",
+      "Databricks Student Fellow (<0.01% acceptance rate)",
+      "Led 12-person Google Developers Group team as President at TAMU",
       "Built agentic observability systems at Marriott using AWS Bedrock",
       "Deployed AR lenses on Snapchat used by real users",
       "Best Freshman Cadet among 700+ cadets at Texas A&M Corps of Cadets"
-    ]
+    ],
+    "positioning": "Senior CS student (Dec 2026, UT Dallas) with hands-on AI engineering across enterprise data systems, NLP, autonomous vehicles, and multimodal applications. Built agentic systems, fine-tuned transformers, deployed inference pipelines on real hardware. Won 4 hackathons. Databricks Student Fellow (<0.01% acceptance). Applying for AI Engineer roles.",
+    "do_not_expose": ["phone number", "exact personal address", "salary expectations", "specific manager names", "internal company details", "future plans/goals"],
+    "skills_context": {
+      "why_these_tools": {
+        "vLLM": "high-throughput LLM inference serving, used for RoBERTa deployment at OIT",
+        "LangSmith": "LLM observability and tracing, used for debugging agent chains",
+        "DeepEval": "LLM evaluation framework, used for RAG quality assessment",
+        "Qdrant/Pinecone/pgvector": "vector databases for RAG systems",
+        "Ray": "distributed compute for ML workloads"
+      }
+    }
   }
 }

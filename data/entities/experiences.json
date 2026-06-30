@@ -12,7 +12,25 @@
         "Introduced agentic observability to legacy data infrastructure running on manual SQL monitoring, deploying AWS Bedrock agents to detect schema drift, row count anomalies, and integrity violations via automated Lambda checks",
         "Cut pipeline incident detection time by 70% by building custom MCP servers and Python boto3 remediation layer from scratch, enabling automated anomaly resolution across AWS data infrastructure"
       ],
-      "technologies": ["AWS Bedrock", "Lambda", "MCP", "Python", "boto3", "SQL"]
+      "technologies": ["AWS Bedrock", "Lambda", "MCP", "Python", "boto3", "SQL"],
+      "context": "Data Services team managing enterprise pipelines for customer, reservation, and financial data. Infrastructure was entirely legacy — manual SQL monitoring, no ML tooling, no automated anomaly detection. Team had two data warehouses on AWS (Redshift) with data flowing through S3 and Glue ETL jobs. Problems: silent schema drift, row count mismatches, data integrity failures going undetected for hours.",
+      "what_built": "Designed and deployed an agentic observability system from scratch using AWS Bedrock. Lambda functions run automated checks post-ETL — schema comparisons, row count validation, null/duplicate integrity scans. On anomaly detection, EventBridge triggers Bedrock agents to reason over findings and generate structured incident reports. Custom MCP servers handle targeted remediation actions (re-trigger Glue jobs, flag bad records). Built entirely in Python using boto3.",
+      "why_matters": "Before this, engineers manually reviewed pipeline outputs. Silent failures would persist until downstream teams reported data issues — often hours later. Automated detection cut that to minutes.",
+      "qa": [
+        {
+          "q": "Why Bedrock over OpenAI?",
+          "a": "Team was AWS-native, Bedrock kept everything within existing IAM and VPC security boundaries."
+        },
+        {
+          "q": "What do MCP servers do?",
+          "a": "Expose targeted remediation actions (job retrigger, record quarantine) that agents can invoke with structured parameters."
+        },
+        {
+          "q": "Multi-agent or single agent?",
+          "a": "Single orchestrating Bedrock agent with multiple Lambda-backed action groups, each scoped to a specific check type."
+        }
+      ],
+      "tech_stack_detail": ["AWS Bedrock", "AWS Lambda", "Amazon EventBridge", "Amazon Redshift", "AWS Glue", "S3", "Python", "boto3", "custom MCP servers"]
     }
   },
   {
@@ -28,7 +46,25 @@
         "Fine-tuned a RoBERTa transformer model for multi-class NLP classification to auto-triage IT support tickets and generate resolution recommendations, reducing manual triage effort by 60%",
         "Curated domain-specific training corpus of 11,000+ IT support tickets, applied class-weight balancing to handle skewed category distribution, achieving 84% macro-F1"
       ],
-      "technologies": ["RoBERTa", "NLP", "Python", "Transformers", "Hugging Face"]
+      "technologies": ["RoBERTa", "NLP", "Python", "Transformers", "Hugging Face"],
+      "context": "OIT handles all IT support for UT Dallas campus — thousands of tickets monthly. Tickets were manually triaged by staff, routing them to appropriate teams. Process was slow, inconsistent, and labor-intensive. No ML system existed.",
+      "what_built": "Fine-tuned RoBERTa (roberta-base via HuggingFace Transformers) for multi-class classification across 10 IT ticket categories. Curated training corpus of 11,000+ historical tickets from OIT's ticketing system. Applied class-weight balancing to handle heavily skewed distribution (password reset tickets dominated ~40% of data). Built full training pipeline in PyTorch with macro-F1 evaluation. Served model inference via vLLM for high-throughput classification. Model also generates resolution recommendations based on predicted category.",
+      "why_matters": "Manual triage required staff to read and route each ticket. Model automates this, freeing staff for actual resolution work.",
+      "qa": [
+        {
+          "q": "Why RoBERTa over BERT?",
+          "a": "RoBERTa removes NSP pre-training objective, performs consistently better on classification tasks with limited domain data."
+        },
+        {
+          "q": "Why macro-F1 not accuracy?",
+          "a": "Ticket distribution is imbalanced — accuracy would be misleading. Macro-F1 weights each class equally, more honest evaluation."
+        },
+        {
+          "q": "How were labels created?",
+          "a": "Used existing ticket category tags from OIT's system as weak supervision labels, then cleaned edge cases manually."
+        }
+      ],
+      "tech_stack_detail": ["RoBERTa", "HuggingFace Transformers", "PyTorch", "vLLM", "Python", "scikit-learn", "MLflow"]
     }
   },
   {
@@ -43,7 +79,25 @@
       "highlights": [
         "Optimized YOLO-based AI inference stack for embedded vehicle deployment using TensorRT and Docker, achieving sub-100ms real-time latency across obstacle detection and proximity warnings on a physical autonomous vehicle"
       ],
-      "technologies": ["YOLO", "TensorRT", "Docker", "Computer Vision", "Python"]
+      "technologies": ["YOLO", "TensorRT", "Docker", "Computer Vision", "Python"],
+      "context": "Research lab running autonomous vehicle project on a physical golf cart. Prior cohort (2023) built the base system. Task was to modernize and improve the AI perception stack for 2025-26 standards.",
+      "what_built": "Upgraded YOLO-based object detection models, optimized inference pipeline using TensorRT for embedded deployment, containerized the full stack with Docker for reproducible deployment on vehicle hardware. Focused on inference latency — getting detection fast enough for real-time obstacle response.",
+      "why_matters": "Previous stack had higher latency, limiting reaction time. TensorRT optimization brought inference to sub-100ms, enabling real-time obstacle detection on physical hardware.",
+      "qa": [
+        {
+          "q": "Which YOLO version?",
+          "a": "YOLOv8 — best balance of accuracy and speed for edge deployment at the time."
+        },
+        {
+          "q": "Why TensorRT?",
+          "a": "NVIDIA's inference optimizer converts PyTorch models to optimized engine files, dramatically reduces latency on NVIDIA hardware."
+        },
+        {
+          "q": "Did you do path planning/collision avoidance logic?",
+          "a": "No — focused on perception layer (detection + proximity signals). Downstream control logic was separate system."
+        }
+      ],
+      "tech_stack_detail": ["YOLO (YOLOv8)", "TensorRT", "Docker", "PyTorch", "Python"]
     }
   },
   {
@@ -59,7 +113,12 @@
         "Engineered gesture-driven AR lens in Lens Studio with hand tracking to trigger 3D interactions, deployed on Snapchat",
         "Optimized lens rendering performance achieving stable 60fps, driving 25% increase in user engagement"
       ],
-      "technologies": ["Lens Studio", "C++", "AR", "Hand Tracking", "3D"]
+      "technologies": ["Lens Studio", "C++", "AR", "Hand Tracking", "3D"],
+      "context": "Externship building AR experiences in Lens Studio for Snapchat. Worked on Fall-themed interactive lens using Snap's built-in hand tracking component and Lens Studio scripting.",
+      "what_built": "Gesture-driven AR lens with real-time hand tracking triggering 3D interactions and animations. Scripted in JavaScript/TypeScript within Lens Studio. Optimized rendering performance through iterative device testing targeting stable 60fps on mobile.",
+      "why_matters": "Deployed real AR experience to Snapchat's production platform, demonstrating ability to ship consumer-facing interactive products with real user engagement.",
+      "qa": [],
+      "tech_stack_detail": ["Lens Studio", "JavaScript/TypeScript", "Snap Hand Tracking component", "3D asset integration"]
     }
   }
 ]

@@ -8,7 +8,9 @@
       "date": "Aug 2026",
       "description": "Geospatial ML pipeline over Microsoft's 129M U.S. buildings dataset, applying 5-stage geometry filtering to surface 11,577 commercial rooftop candidates with viability score >= 70. LLM-powered report generator using Gemini 2.0 Flash and LangChain, synthesizing geospatial scores, 30-year precipitation data, and viability metrics into investor-ready briefs.",
       "technologies": ["Gemini 2.0 Flash", "LangChain", "ML", "Geospatial", "Python"],
-      "achievement": "Winner Overall at HackSMU 2026"
+      "achievement": "Winner Overall at HackSMU 2026",
+      "what_it_is": "End-to-end geospatial ML pipeline to identify commercial rooftop candidates for water-reuse systems. Processed Microsoft's 129M U.S. buildings dataset.",
+      "how_it_works": "Geometry filtering algorithm (bounding box validation, area thresholding, roof pitch estimation, shadow/obstruction analysis, commercial zoning check) narrows 129M buildings to viable candidates. Multi-dimensional scoring integrates 30-year NOAA precipitation normals, building geometry, and location viability. LLM-powered brief generator (Gemini 2.0 Flash + LangChain) synthesizes scores and data into investor-ready reports."
     }
   },
   {
@@ -20,7 +22,9 @@
       "date": "Aug 2025",
       "description": "Multimodal agentic browser using LangGraph and GPT-4V, enabling autonomous web navigation through vision-based page understanding and Playwright-driven action execution across multi-step user tasks.",
       "technologies": ["LangGraph", "GPT-4V", "Playwright", "Python", "Agentic AI"],
-      "achievement": "Winner Best Software at Headstarter Hack 2025"
+      "achievement": "Winner Best Software at Headstarter Hack 2025",
+      "what_it_is": "Autonomous browser agent that takes screenshots of web pages, understands visual content using GPT-4V, and executes multi-step tasks autonomously.",
+      "how_it_works": "LangGraph orchestrates decision loop. GPT-4V interprets page screenshots for vision-based understanding. Playwright executes browser actions (clicks, form fills, navigation). Agent handles multi-step tasks including web search, content extraction, and form completion."
     }
   },
   {
@@ -32,7 +36,9 @@
       "date": "Feb 2025",
       "description": "Healthcare robot combining DeepFace emotion recognition and LangChain RAG over medical knowledge base, achieving 94% emotion detection accuracy with sub-1s conversational response latency.",
       "technologies": ["DeepFace", "LangChain", "RAG", "OpenCV", "Python"],
-      "achievement": "94% emotion detection accuracy"
+      "achievement": "94% emotion detection accuracy, sub-500ms conversational response latency",
+      "what_it_is": "Healthcare robot combining emotion recognition and RAG-powered medical knowledge retrieval for patient interaction.",
+      "how_it_works": "DeepFace detects patient emotion in real-time from camera feed. LangChain RAG retrieves relevant information from medical knowledge base based on detected emotion and patient query. Conversational response generated and delivered."
     }
   },
   {
@@ -44,7 +50,9 @@
       "date": "Jan 2025",
       "description": "Multimodal mood detection pipeline using DeepFace, MediaPipe, and Whisper to classify user emotional state in real time, improving Spotify recommendation relevance by 70%.",
       "technologies": ["DeepFace", "MediaPipe", "Whisper", "Spotify API", "Python"],
-      "achievement": "Winner Overall at TAMUHack 2025"
+      "achievement": "Winner Overall at TAMUHack 2025",
+      "what_it_is": "Mood-based music recommendation app using three real-time input modalities.",
+      "how_it_works": "DeepFace for facial emotion detection, MediaPipe for body motion tracking, Whisper for speech-to-text. Three signals feed mood classifier which queries Spotify API for matching tracks."
     }
   }
 ]

@@ -1,0 +1,11 @@
+{
+  "id": "meta:behavior",
+  "type": "meta",
+  "label": "Agent Behavior Context",
+  "properties": {
+    "positioning": "Senior CS student (Dec 2026, UT Dallas) with hands-on AI engineering across enterprise data systems, NLP, autonomous vehicles, and multimodal applications. Built agentic systems, fine-tuned transformers, deployed inference pipelines on real hardware. Won 4 hackathons. Databricks Student Fellow (<0.01% acceptance). Applying for AI Engineer roles.",
+    "do_not_expose": ["phone number", "address", "salary expectations", "manager names", "internal company details", "future plans/goals"],
+    "fun_personality_facts": ["4x hackathon winner", "Databricks Fellow", "Led 12-person GDG team"],
+    "recruiter_signals": ["hire", "position", "role", "availability", "interview", "compensation"]
+  }
+}
