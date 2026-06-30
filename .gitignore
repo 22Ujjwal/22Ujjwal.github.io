@@ -37,7 +37,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-README.md
-*.md
+# python virtual env
+/venv
+
+# old files (deprecated)
+/js/resumeData.js
 
 # for reference https://help.github.com/articles/ignoring-files/ about ignoring files.

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "lead:gdg",
+    "type": "leadership",
+    "label": "President, Google Developers Group at TAMU",
+    "properties": {
+      "position": "President",
+      "organization": "Google Developers Group at TAMU",
+      "duration": "Jul 2024 - Present"
+    }
+  },
+  {
+    "id": "lead:tlato",
+    "type": "leadership",
+    "label": "Co-Founder and Developer Team Lead, Tlato Startup",
+    "properties": {
+      "position": "Co-Founder and Developer Team Lead",
+      "organization": "Tlato Startup",
+      "duration": "Aug 2024 - Present"
+    }
+  },
+  {
+    "id": "lead:blockchain",
+    "type": "leadership",
+    "label": "Developer Lead, Texas A&M Blockchain",
+    "properties": {
+      "position": "Developer Lead",
+      "organization": "Texas A&M Blockchain",
+      "duration": "Aug 2023 - Present"
+    }
+  },
+  {
+    "id": "lead:cadets",
+    "type": "leadership",
+    "label": "Cadet, Texas A&M Corps of Cadets",
+    "properties": {
+      "position": "Cadet",
+      "organization": "Texas A&M Corps of Cadets",
+      "duration": "Aug 2023 - Dec 2023",
+      "achievement": "Best Freshman Cadet among 700+ cadets"
+    }
+  }
+]

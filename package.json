@@ -1,22 +1,25 @@
 {
+  "name": "22ujjwal.github.io",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "description": "Personal portfolio website with AI chatbot",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node scripts/import-github.js && node scripts/build-index.js"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
+    "@vercel/kv": "^3.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "three": "^0.175.0"
   },
-  "name": "22ujjwal.github.io",
-  "version": "1.0.0",
-  "main": "server.js",
   "devDependencies": {
     "live-server": "^1.2.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
-    "start": "node server.js",
-    "build": "echo 'Build step completed'"
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,5 @@
   "bugs": {
     "url": "https://github.com/22Ujjwal/22Ujjwal.github.io/issues"
   },
-  "homepage": "https://github.com/22Ujjwal/22Ujjwal.github.io#readme",
-  "description": ""
+  "homepage": "https://github.com/22Ujjwal/22Ujjwal.github.io#readme"
 }

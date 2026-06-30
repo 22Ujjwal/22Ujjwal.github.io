@@ -1,0 +1,24 @@
+[
+  {
+    "id": "edu:utd",
+    "type": "education",
+    "label": "University of Texas at Dallas",
+    "properties": {
+      "degree": "BS Computer Science",
+      "status": "Junior",
+      "expectedGraduation": "May 2027",
+      "location": "Dallas, TX"
+    }
+  },
+  {
+    "id": "edu:tamu",
+    "type": "education",
+    "label": "Texas A&M University, College Station",
+    "properties": {
+      "degree": "BS Computer Science",
+      "status": "Transferred",
+      "duration": "Aug 2023 - Dec 2024",
+      "activities": "Corps of Cadets, Google Developers Group, TAMU Blockchain Club, Aggie Data Science Society"
+    }
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "exp:marriott",
+    "type": "experience",
+    "label": "AI Engineer Intern at Marriott Vacation Worldwide",
+    "properties": {
+      "position": "AI Engineer Intern",
+      "company": "Marriott Vacation Worldwide",
+      "location": "Orlando, FL",
+      "duration": "May 2026 - Aug 2026",
+      "highlights": [
+        "Introduced agentic observability to legacy data infrastructure running on manual SQL monitoring, deploying AWS Bedrock agents to detect schema drift, row count anomalies, and integrity violations via automated Lambda checks",
+        "Cut pipeline incident detection time by 70% by building custom MCP servers and Python boto3 remediation layer from scratch, enabling automated anomaly resolution across AWS data infrastructure"
+      ],
+      "technologies": ["AWS Bedrock", "Lambda", "MCP", "Python", "boto3", "SQL"]
+    }
+  },
+  {
+    "id": "exp:utd-it",
+    "type": "experience",
+    "label": "Machine Learning Engineer at UT Dallas Office of IT",
+    "properties": {
+      "position": "Machine Learning Engineer",
+      "company": "UT Dallas - Office of IT",
+      "location": "Dallas, TX",
+      "duration": "Aug 2025 - May 2026",
+      "highlights": [
+        "Fine-tuned a RoBERTa transformer model for multi-class NLP classification to auto-triage IT support tickets and generate resolution recommendations, reducing manual triage effort by 60%",
+        "Curated domain-specific training corpus of 11,000+ IT support tickets, applied class-weight balancing to handle skewed category distribution, achieving 84% macro-F1"
+      ],
+      "technologies": ["RoBERTa", "NLP", "Python", "Transformers", "Hugging Face"]
+    }
+  },
+  {
+    "id": "exp:nova",
+    "type": "experience",
+    "label": "AI Engineer Intern at Nova Research",
+    "properties": {
+      "position": "AI Engineer Intern",
+      "company": "Nova Research",
+      "location": "Dallas, TX",
+      "duration": "Sep 2025 - May 2026",
+      "highlights": [
+        "Optimized YOLO-based AI inference stack for embedded vehicle deployment using TensorRT and Docker, achieving sub-100ms real-time latency across obstacle detection and proximity warnings on a physical autonomous vehicle"
+      ],
+      "technologies": ["YOLO", "TensorRT", "Docker", "Computer Vision", "Python"]
+    }
+  },
+  {
+    "id": "exp:snap",
+    "type": "experience",
+    "label": "Augmented Reality Developer Extern at Snap Inc.",
+    "properties": {
+      "position": "Augmented Reality Developer Extern",
+      "company": "Snap Inc.",
+      "location": "Remote U.S.",
+      "duration": "Sep 2024 - Nov 2024",
+      "highlights": [
+        "Engineered gesture-driven AR lens in Lens Studio with hand tracking to trigger 3D interactions, deployed on Snapchat",
+        "Optimized lens rendering performance achieving stable 60fps, driving 25% increase in user engagement"
+      ],
+      "technologies": ["Lens Studio", "C++", "AR", "Hand Tracking", "3D"]
+    }
+  }
+]

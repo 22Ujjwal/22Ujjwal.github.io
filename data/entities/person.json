@@ -1,0 +1,20 @@
+{
+  "id": "person:ujjwal",
+  "type": "person",
+  "label": "Ujjwal Gupta",
+  "properties": {
+    "headline": "AI Engineer | CS Student at UT Dallas",
+    "summary": "Computer Science student at UT Dallas with production experience in AI/ML engineering, agentic systems, and computer vision. Built systems at Marriott, Snap Inc., and Nova Research. Multiple hackathon winner.",
+    "location": "Dallas, TX",
+    "email": "ujjwalgupta2294@gmail.com",
+    "linkedin": "https://linkedin.com/in/ujjwalgupta-/",
+    "github": "https://github.com/22Ujjwal",
+    "personality": ["Outgoing", "People-oriented", "Responsible", "Driven"],
+    "funFacts": [
+      "Won Overall at HackSMU 2026, TAMUHack 2025, and Best Software at Headstarter Hack 2025",
+      "Built agentic observability systems at Marriott using AWS Bedrock",
+      "Deployed AR lenses on Snapchat used by real users",
+      "Best Freshman Cadet among 700+ cadets at Texas A&M Corps of Cadets"
+    ]
+  }
+}

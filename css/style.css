@@ -516,7 +516,8 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.8rem;
     }
 
     h1 {
@@ -528,8 +529,185 @@ footer {
         height: 150px;
     }
 
+    .imessage-window {
+        width: 95%;
+        height: 70vh;
+        min-height: 350px;
+        max-height: 500px;
+    }
+
+    .macbook-window {
+        width: 95%;
+    }
+
+    .first-emoji {
+        width: 80px;
+        height: 80px;
+    }
+
     .contact h2 {
         font-size: 2rem;
+    }
+}
+
+/* Phone breakpoint */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 1rem 0.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero {
+        padding: 0.5rem;
+    }
+
+    .memoji {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+
+    .imessage-window {
+        width: 98%;
+        height: 60vh;
+        min-height: 300px;
+        max-height: 450px;
+        margin: 1rem auto;
+    }
+
+    .macbook-window {
+        width: 98%;
+        margin: 1rem auto;
+    }
+
+    .first-emoji {
+        width: 60px;
+        height: 60px;
+    }
+
+    .message-content {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .chat-input {
+        padding: 0.4rem;
+    }
+
+    .chat-input input {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+
+    .chat-input button {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+    }
+
+    .chat-header span {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
+    }
+
+    .contact {
+        padding: 2rem 1rem;
+    }
+
+    .contact h2 {
+        font-size: 1.6rem;
+    }
+
+    .contact-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Small phone breakpoint */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .memoji {
+        width: 100px;
+        height: 100px;
+    }
+
+    .imessage-window {
+        width: 100%;
+        height: 55vh;
+        min-height: 280px;
+        border-radius: 8px;
+        margin: 0.5rem auto;
+    }
+
+    .macbook-window {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .first-emoji {
+        width: 50px;
+        height: 50px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .message-content {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+        border-radius: 14px;
+    }
+
+    .chat-input input {
+        font-size: 0.85rem;
+    }
+
+    .chat-messages {
+        padding: 0.5rem;
+    }
+
+    .contact h2 {
+        font-size: 1.4rem;
+    }
+
+    .social-links {
+        gap: 0.8rem;
     }
 }
 

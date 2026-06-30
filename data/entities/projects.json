@@ -1,0 +1,50 @@
+[
+  {
+    "id": "proj:pluvial",
+    "type": "project",
+    "label": "Automated Water-Reuse Prospecting Engine (Pluvial)",
+    "properties": {
+      "tagline": "Winner Overall at HackSMU",
+      "date": "Aug 2026",
+      "description": "Geospatial ML pipeline over Microsoft's 129M U.S. buildings dataset, applying 5-stage geometry filtering to surface 11,577 commercial rooftop candidates with viability score >= 70. LLM-powered report generator using Gemini 2.0 Flash and LangChain, synthesizing geospatial scores, 30-year precipitation data, and viability metrics into investor-ready briefs.",
+      "technologies": ["Gemini 2.0 Flash", "LangChain", "ML", "Geospatial", "Python"],
+      "achievement": "Winner Overall at HackSMU 2026"
+    }
+  },
+  {
+    "id": "proj:denim",
+    "type": "project",
+    "label": "Multimodal Agentic Browser (Denim)",
+    "properties": {
+      "tagline": "Winner Best Software at Headstarter Hack",
+      "date": "Aug 2025",
+      "description": "Multimodal agentic browser using LangGraph and GPT-4V, enabling autonomous web navigation through vision-based page understanding and Playwright-driven action execution across multi-step user tasks.",
+      "technologies": ["LangGraph", "GPT-4V", "Playwright", "Python", "Agentic AI"],
+      "achievement": "Winner Best Software at Headstarter Hack 2025"
+    }
+  },
+  {
+    "id": "proj:ted-med",
+    "type": "project",
+    "label": "AI Healthcare Robot (Ted Med)",
+    "properties": {
+      "tagline": "Georgia Tech Hacklytics",
+      "date": "Feb 2025",
+      "description": "Healthcare robot combining DeepFace emotion recognition and LangChain RAG over medical knowledge base, achieving 94% emotion detection accuracy with sub-1s conversational response latency.",
+      "technologies": ["DeepFace", "LangChain", "RAG", "OpenCV", "Python"],
+      "achievement": "94% emotion detection accuracy"
+    }
+  },
+  {
+    "id": "proj:dj-bestie",
+    "type": "project",
+    "label": "AI Music Streaming Platform (DJ Bestie)",
+    "properties": {
+      "tagline": "Winner Overall at TAMUHack",
+      "date": "Jan 2025",
+      "description": "Multimodal mood detection pipeline using DeepFace, MediaPipe, and Whisper to classify user emotional state in real time, improving Spotify recommendation relevance by 70%.",
+      "technologies": ["DeepFace", "MediaPipe", "Whisper", "Spotify API", "Python"],
+      "achievement": "Winner Overall at TAMUHack 2025"
+    }
+  }
+]

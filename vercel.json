@@ -3,16 +3,31 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".",
   "functions": {
+    "api/chat.js": {
+      "runtime": "edge",
+      "maxDuration": 30
+    },
     "api/*.js": {
       "memory": 1024,
       "maxDuration": 10
     }
   },
   "rewrites": [
+    { "source": "/api/chat", "destination": "/api/chat.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/$1" }
   ],
   "headers": [
+    {
+      "source": "/api/chat",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, X-Requested-With, Accept" },
+        { "key": "Cache-Control", "value": "no-store, no-cache" }
+      ]
+    },
     {
       "source": "/api/(.*)",
       "headers": [

@@ -1,0 +1,11 @@
+{
+  "about": ["person:ujjwal"],
+  "skills": ["skills:all", "person:ujjwal"],
+  "projects": ["proj:pluvial", "proj:denim", "proj:ted-med", "proj:dj-bestie"],
+  "experience": ["exp:marriott", "exp:utd-it", "exp:nova", "exp:snap"],
+  "education": ["edu:utd", "edu:tamu"],
+  "contact": ["person:ujjwal"],
+  "leadership": ["lead:gdg", "lead:tlato", "lead:blockchain", "lead:cadets"],
+  "ai_ml": ["skills:all", "exp:marriott", "exp:utd-it", "exp:nova", "proj:pluvial", "proj:denim", "proj:ted-med"],
+  "hackathons": ["proj:pluvial", "proj:denim", "proj:ted-med", "proj:dj-bestie"]
+}

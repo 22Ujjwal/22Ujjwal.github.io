@@ -1,0 +1,23 @@
+{
+  "id": "skills:all",
+  "type": "skills",
+  "label": "Technical Skills",
+  "properties": {
+    "ai_ml": [
+      "LLM Applications", "RAG Systems", "Agentic AI", "vLLM",
+      "Hugging Face Transformers", "MLflow", "LangChain", "LangGraph",
+      "TensorRT", "PyTorch", "TensorFlow", "LangSmith", "DeepEval"
+    ],
+    "data_cloud": [
+      "AWS (Bedrock, Sagemaker, Lambda)", "Azure AI", "GCP",
+      "Databricks", "PostgreSQL", "Snowflake", "Qdrant",
+      "Pinecone", "pgvector"
+    ],
+    "programming": [
+      "Python (NumPy, Pandas, Scikit-learn)", "C++", "SQL", "TypeScript"
+    ],
+    "infrastructure": [
+      "Docker", "Kubernetes", "FastAPI", "Ray", "Git", "React", "Node.js"
+    ]
+  }
+}

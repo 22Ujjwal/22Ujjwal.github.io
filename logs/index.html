@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Logs - Admin</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    /* Auth form */
+    .auth-section {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .auth-section input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.6rem 1rem;
+      border: 1px solid #2a2a3a;
+      border-radius: 6px;
+      background: #13131f;
+      color: #e0e0e0;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .auth-section input:focus {
+      border-color: #6366f1;
+    }
+
+    .auth-section button {
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      background: #6366f1;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .auth-section button:hover {
+      background: #4f46e5;
+    }
+
+    .auth-section button:disabled {
+      background: #3a3a4a;
+      cursor: not-allowed;
+    }
+
+    /* Status messages */
+    .status {
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .status.error {
+      display: block;
+      background: #1f1020;
+      border: 1px solid #7f1d1d;
+      color: #fca5a5;
+    }
+
+    .status.loading {
+      display: block;
+      background: #101f1f;
+      border: 1px solid #1e3a3a;
+      color: #94e0d0;
+    }
+
+    /* Stats cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: #13131f;
+      border: 1px solid #2a2a3a;
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .stat-card .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-card .value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Filter */
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-bar label {
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .filter-bar select {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #2a2a3a;
+      border-radius: 6px;
+      background: #13131f;
+      color: #e0e0e0;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .filter-bar select:focus {
+      border-color: #6366f1;
+    }
+
+    .entry-count {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    /* Table */
+    .table-wrapper {
+      overflow-x: auto;
+      border: 1px solid #2a2a3a;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: #13131f;
+      border-bottom: 1px solid #2a2a3a;
+      font-weight: 600;
+      color: #aaa;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid #1a1a2a;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #1a1a2a;
+    }
+
+    .col-time { width: 140px; white-space: nowrap; color: #888; }
+    .col-session { width: 90px; font-family: monospace; font-size: 0.8rem; color: #6366f1; }
+    .col-intent { width: 100px; }
+    .col-message { min-width: 200px; word-break: break-word; }
+
+    .intent-badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: #1e1e3a;
+      color: #a5b4fc;
+    }
+
+    .intent-badge.unknown {
+      background: #2a1a1a;
+      color: #f9a8a8;
+    }
+
+    /* Hidden state */
+    .hidden { display: none; }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.5rem; }
+      .stat-card .value { font-size: 1.3rem; }
+      th, td { padding: 0.5rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chat Logs Viewer</h1>
+
+    <div class="auth-section">
+      <input type="password" id="password-input" placeholder="Admin password" autocomplete="current-password">
+      <button id="fetch-btn" onclick="fetchLogs()">Load Logs</button>
+    </div>
+
+    <div class="status" id="status-msg"></div>
+
+    <div id="content" class="hidden">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="label">Total Sessions</div>
+          <div class="value" id="stat-sessions">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Total Messages</div>
+          <div class="value" id="stat-messages">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Messages Today</div>
+          <div class="value" id="stat-today">0</div>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <label for="intent-filter">Filter by intent:</label>
+        <select id="intent-filter" onchange="applyFilter()">
+          <option value="">All</option>
+        </select>
+        <span class="entry-count" id="entry-count"></span>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Session</th>
+              <th>Intent</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody id="log-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="empty-state hidden" id="empty-state">
+        No chat logs found.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allEntries = [];
+
+    const passwordInput = document.getElementById('password-input');
+    const fetchBtn = document.getElementById('fetch-btn');
+    const statusMsg = document.getElementById('status-msg');
+    const content = document.getElementById('content');
+    const intentFilter = document.getElementById('intent-filter');
+    const logTbody = document.getElementById('log-tbody');
+    const entryCount = document.getElementById('entry-count');
+    const emptyState = document.getElementById('empty-state');
+
+    // Allow Enter key to submit
+    passwordInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') fetchLogs();
+    });
+
+    function showStatus(msg, type) {
+      statusMsg.textContent = msg;
+      statusMsg.className = 'status ' + type;
+    }
+
+    function hideStatus() {
+      statusMsg.className = 'status';
+    }
+
+    async function fetchLogs() {
+      const password = passwordInput.value.trim();
+      if (!password) {
+        showStatus('Please enter a password.', 'error');
+        return;
+      }
+
+      fetchBtn.disabled = true;
+      fetchBtn.textContent = 'Loading...';
+      showStatus('Fetching logs...', 'loading');
+      content.classList.add('hidden');
+
+      try {
+        const res = await fetch('/api/logs?password=' + encodeURIComponent(password));
+
+        if (res.status === 401) {
+          showStatus('Invalid password.', 'error');
+          return;
+        }
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          showStatus(data.error || 'Failed to fetch logs.', 'error');
+          return;
+        }
+
+        const data = await res.json();
+        hideStatus();
+        renderData(data);
+      } catch (err) {
+        showStatus('Network error: ' + err.message, 'error');
+      } finally {
+        fetchBtn.disabled = false;
+        fetchBtn.textContent = 'Load Logs';
+      }
+    }
+
+    function renderData(data) {
+      const { stats, entries } = data;
+      allEntries = entries || [];
+
+      // Stats
+      document.getElementById('stat-sessions').textContent = stats.totalSessions;
+      document.getElementById('stat-messages').textContent = stats.totalMessages;
+      document.getElementById('stat-today').textContent = stats.messagesToday;
+
+      // Populate intent filter
+      const intents = stats.topIntents.map(i => i.intent);
+      intentFilter.innerHTML = '<option value="">All</option>';
+      for (const intent of intents) {
+        const opt = document.createElement('option');
+        opt.value = intent;
+        opt.textContent = intent + ' (' + stats.topIntents.find(i => i.intent === intent).count + ')';
+        intentFilter.appendChild(opt);
+      }
+
+      content.classList.remove('hidden');
+      applyFilter();
+    }
+
+    function applyFilter() {
+      const filter = intentFilter.value;
+      const filtered = filter
+        ? allEntries.filter(e => (e.intent || 'unknown') === filter)
+        : allEntries;
+
+      entryCount.textContent = filtered.length + ' entries';
+
+      if (filtered.length === 0) {
+        logTbody.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      // Render table rows (limit to 500 for performance)
+      const display = filtered.slice(0, 500);
+      let html = '';
+
+      for (const entry of display) {
+        const time = entry.timestamp
+          ? new Date(entry.timestamp).toLocaleString()
+          : 'N/A';
+        const session = (entry.sessionId || 'unknown').substring(0, 8);
+        const intent = entry.intent || 'unknown';
+        const badgeClass = intent === 'unknown' ? 'intent-badge unknown' : 'intent-badge';
+        const message = escapeHtml(entry.message || '');
+
+        html += '<tr>'
+          + '<td class="col-time">' + time + '</td>'
+          + '<td class="col-session">' + session + '</td>'
+          + '<td class="col-intent"><span class="' + badgeClass + '">' + intent + '</span></td>'
+          + '<td class="col-message">' + message + '</td>'
+          + '</tr>';
+      }
+
+      logTbody.innerHTML = html;
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
