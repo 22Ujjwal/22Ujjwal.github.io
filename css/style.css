@@ -413,12 +413,21 @@ body {
 }
 
 h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeIn 1s ease-out;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
 }
 
 @keyframes fadeIn {
@@ -429,7 +438,7 @@ h1 {
 .social-links {
     display: flex;
     gap: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .social-links a {
@@ -457,7 +466,7 @@ h1 {
 
 /* Contact Section */
 .contact {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     text-align: center;
     background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
     position: relative;
@@ -476,23 +485,31 @@ h1 {
 }
 
 .contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.contact p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .contact-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     background: var(--gradient-primary);
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
