@@ -1,11 +1,68 @@
 {
-  "about": ["person:ujjwal"],
-  "skills": ["skills:all", "person:ujjwal"],
-  "projects": ["proj:pluvial", "proj:denim", "proj:ted-med", "proj:dj-bestie"],
-  "experience": ["exp:marriott", "exp:utd-it", "exp:nova", "exp:snap"],
-  "education": ["edu:utd", "edu:tamu"],
-  "contact": ["person:ujjwal"],
-  "leadership": ["lead:gdg", "lead:tlato", "lead:blockchain", "lead:cadets"],
-  "ai_ml": ["skills:all", "exp:marriott", "exp:utd-it", "exp:nova", "proj:pluvial", "proj:denim", "proj:ted-med"],
-  "hackathons": ["proj:pluvial", "proj:denim", "proj:ted-med", "proj:dj-bestie"]
+  "about": [
+    "person:ujjwal"
+  ],
+  "skills": [
+    "skills:all",
+    "person:ujjwal"
+  ],
+  "projects": [
+    "proj:pluvial",
+    "proj:denim",
+    "proj:ted-med",
+    "proj:dj-bestie"
+  ],
+  "experience": [
+    "exp:marriott",
+    "exp:utd-it",
+    "exp:nova",
+    "exp:snap"
+  ],
+  "education": [
+    "edu:utd",
+    "edu:tamu"
+  ],
+  "contact": [
+    "person:ujjwal"
+  ],
+  "leadership": [
+    "lead:gdg",
+    "lead:tlato",
+    "lead:blockchain",
+    "lead:cadets"
+  ],
+  "ai_ml": [
+    "skills:all",
+    "exp:marriott",
+    "exp:utd-it",
+    "exp:nova",
+    "proj:pluvial",
+    "proj:denim",
+    "proj:ted-med"
+  ],
+  "hackathons": [
+    "proj:pluvial",
+    "proj:denim",
+    "proj:ted-med",
+    "proj:dj-bestie"
+  ],
+  "repos": [
+    "repo:llm_response_quality_check",
+    "repo:saving_water",
+    "repo:Alpha_pizza_base",
+    "repo:AA_hacks_slides",
+    "repo:Airline_Crew_Sequence",
+    "repo:secure_voting_formula",
+    "repo:Denim_AI-Browser",
+    "repo:OptiqAid",
+    "repo:Multimodal_Agent",
+    "repo:Dakota",
+    "repo:llm-not-close-to-frontier",
+    "repo:Chill-kill-CS3354",
+    "repo:AI-Coach",
+    "repo:MySpace",
+    "repo:WintiML",
+    "repo:MyRAG",
+    "repo:Web3"
+  ]
 }

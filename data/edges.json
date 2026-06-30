@@ -1,31 +1,334 @@
 [
-  {"from": "person:ujjwal", "to": "exp:marriott", "relation": "WORKED_AT", "weight": 1.0},
-  {"from": "person:ujjwal", "to": "exp:utd-it", "relation": "WORKED_AT", "weight": 0.9},
-  {"from": "person:ujjwal", "to": "exp:nova", "relation": "WORKED_AT", "weight": 0.9},
-  {"from": "person:ujjwal", "to": "exp:snap", "relation": "WORKED_AT", "weight": 0.8},
-
-  {"from": "person:ujjwal", "to": "proj:pluvial", "relation": "BUILT", "weight": 1.0},
-  {"from": "person:ujjwal", "to": "proj:denim", "relation": "BUILT", "weight": 1.0},
-  {"from": "person:ujjwal", "to": "proj:ted-med", "relation": "BUILT", "weight": 0.9},
-  {"from": "person:ujjwal", "to": "proj:dj-bestie", "relation": "BUILT", "weight": 0.9},
-
-  {"from": "person:ujjwal", "to": "edu:utd", "relation": "STUDIES_AT", "weight": 1.0},
-  {"from": "person:ujjwal", "to": "edu:tamu", "relation": "STUDIED_AT", "weight": 0.7},
-
-  {"from": "person:ujjwal", "to": "skills:all", "relation": "KNOWS", "weight": 1.0},
-
-  {"from": "person:ujjwal", "to": "lead:gdg", "relation": "LEADS", "weight": 1.0},
-  {"from": "person:ujjwal", "to": "lead:tlato", "relation": "LEADS", "weight": 1.0},
-  {"from": "person:ujjwal", "to": "lead:blockchain", "relation": "LEADS", "weight": 0.9},
-  {"from": "person:ujjwal", "to": "lead:cadets", "relation": "MEMBER_OF", "weight": 0.7},
-
-  {"from": "exp:marriott", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["AWS Bedrock", "Lambda", "MCP", "Python", "Agentic AI"]},
-  {"from": "exp:utd-it", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["RoBERTa", "NLP", "Hugging Face Transformers", "Python"]},
-  {"from": "exp:nova", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["YOLO", "TensorRT", "Docker", "Python"]},
-  {"from": "exp:snap", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["C++", "AR", "Lens Studio"]},
-
-  {"from": "proj:pluvial", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["LangChain", "Gemini", "ML", "Python"]},
-  {"from": "proj:denim", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["LangGraph", "Agentic AI", "Playwright", "Python"]},
-  {"from": "proj:ted-med", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["LangChain", "RAG", "DeepFace", "OpenCV"]},
-  {"from": "proj:dj-bestie", "to": "skills:all", "relation": "USED_SKILLS", "weight": 1.0, "skills": ["DeepFace", "MediaPipe", "Whisper"]}
+  {
+    "from": "person:ujjwal",
+    "to": "exp:marriott",
+    "relation": "WORKED_AT",
+    "weight": 1
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "exp:utd-it",
+    "relation": "WORKED_AT",
+    "weight": 0.9
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "exp:nova",
+    "relation": "WORKED_AT",
+    "weight": 0.9
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "exp:snap",
+    "relation": "WORKED_AT",
+    "weight": 0.8
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "proj:pluvial",
+    "relation": "BUILT",
+    "weight": 1
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "proj:denim",
+    "relation": "BUILT",
+    "weight": 1
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "proj:ted-med",
+    "relation": "BUILT",
+    "weight": 0.9
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "proj:dj-bestie",
+    "relation": "BUILT",
+    "weight": 0.9
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "edu:utd",
+    "relation": "STUDIES_AT",
+    "weight": 1
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "edu:tamu",
+    "relation": "STUDIED_AT",
+    "weight": 0.7
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "skills:all",
+    "relation": "KNOWS",
+    "weight": 1
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "lead:gdg",
+    "relation": "LEADS",
+    "weight": 1
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "lead:tlato",
+    "relation": "LEADS",
+    "weight": 1
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "lead:blockchain",
+    "relation": "LEADS",
+    "weight": 0.9
+  },
+  {
+    "from": "person:ujjwal",
+    "to": "lead:cadets",
+    "relation": "MEMBER_OF",
+    "weight": 0.7
+  },
+  {
+    "from": "exp:marriott",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "AWS Bedrock",
+      "Lambda",
+      "MCP",
+      "Python",
+      "Agentic AI"
+    ]
+  },
+  {
+    "from": "exp:utd-it",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "RoBERTa",
+      "NLP",
+      "Hugging Face Transformers",
+      "Python"
+    ]
+  },
+  {
+    "from": "exp:nova",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "YOLO",
+      "TensorRT",
+      "Docker",
+      "Python"
+    ]
+  },
+  {
+    "from": "exp:snap",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "C++",
+      "AR",
+      "Lens Studio"
+    ]
+  },
+  {
+    "from": "proj:pluvial",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "LangChain",
+      "Gemini",
+      "ML",
+      "Python"
+    ]
+  },
+  {
+    "from": "proj:denim",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "LangGraph",
+      "Agentic AI",
+      "Playwright",
+      "Python"
+    ]
+  },
+  {
+    "from": "proj:ted-med",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "LangChain",
+      "RAG",
+      "DeepFace",
+      "OpenCV"
+    ]
+  },
+  {
+    "from": "proj:dj-bestie",
+    "to": "skills:all",
+    "relation": "USED_SKILLS",
+    "weight": 1,
+    "skills": [
+      "DeepFace",
+      "MediaPipe",
+      "Whisper"
+    ]
+  },
+  {
+    "from": "repo:llm_response_quality_check",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Python"
+    ]
+  },
+  {
+    "from": "repo:saving_water",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "TypeScript"
+    ]
+  },
+  {
+    "from": "repo:Alpha_pizza_base",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "HTML"
+    ]
+  },
+  {
+    "from": "repo:AA_hacks_slides",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "HTML"
+    ]
+  },
+  {
+    "from": "repo:Airline_Crew_Sequence",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "from": "repo:secure_voting_formula",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": []
+  },
+  {
+    "from": "repo:Denim_AI-Browser",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "JavaScript"
+    ]
+  },
+  {
+    "from": "repo:OptiqAid",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Python"
+    ]
+  },
+  {
+    "from": "repo:Multimodal_Agent",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Python"
+    ]
+  },
+  {
+    "from": "repo:Dakota",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "JavaScript"
+    ]
+  },
+  {
+    "from": "repo:llm-not-close-to-frontier",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": []
+  },
+  {
+    "from": "repo:Chill-kill-CS3354",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Python"
+    ]
+  },
+  {
+    "from": "repo:AI-Coach",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Python"
+    ]
+  },
+  {
+    "from": "repo:MySpace",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "from": "repo:WintiML",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Python"
+    ]
+  },
+  {
+    "from": "repo:MyRAG",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": []
+  },
+  {
+    "from": "repo:Web3",
+    "to": "skills:all",
+    "relation": "DEMONSTRATES",
+    "weight": 0.8,
+    "skills": [
+      "Python"
+    ]
+  }
 ]

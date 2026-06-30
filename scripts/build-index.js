@@ -114,11 +114,11 @@ async function batchEmbed(texts) {
   for (let i = 0; i < texts.length; i += BATCH_SIZE) {
     const batch = texts.slice(i, i + BATCH_SIZE);
     const requests = batch.map((text) => ({
-      model: 'models/text-embedding-004',
+      model: 'models/gemini-embedding-001',
       content: { parts: [{ text }] },
     }));
 
-    const url = `https://generativelanguage.googleapis.com/v1/models/text-embedding-004:batchEmbedContents?key=${GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents?key=${GEMINI_API_KEY}`;
 
     const response = await fetch(url, {
       method: 'POST',

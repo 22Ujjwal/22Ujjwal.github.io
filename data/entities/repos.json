@@ -1,0 +1,223 @@
+[
+  {
+    "id": "repo:llm_response_quality_check",
+    "type": "repo",
+    "label": "llm_response_quality_check",
+    "properties": {
+      "description": "Predicting LLM Knowledge Performance from Reasoning Benchmarks: A From-Scratch Logistic Regression Approach",
+      "url": "https://github.com/22Ujjwal/llm_response_quality_check",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# Reasoning vs Memorization Classifier\n## by Ujjwal Gupta 🫡\n\n## Report\n\nFull project report (PDF): [Ujjwal_Gupta_ML_report.pdf](Ujjwal_Gupta_ML_report.pdf)\n\n---\n\nLLMs get benchmarked constantly, but high scores don't always mean the model is actually reasoning.\nThis project asks a real question: can a model's reasoning benchmark performance predict how well\nit does on GPQA (a graduate-level knowledge benchmark)?\n\nWe build a binary classifier to answer exactly that. No data leakage, no shortcuts"
+    }
+  },
+  {
+    "id": "repo:saving_water",
+    "type": "repo",
+    "label": "saving_water",
+    "properties": {
+      "description": "Overall Winner HackSMU",
+      "url": "https://github.com/22Ujjwal/saving_water",
+      "language": "TypeScript",
+      "stars": 4,
+      "topics": [],
+      "readme_excerpt": "# Pluvial - Overall Winner 🏆\n### Automated Water-Reuse Prospecting Engine - HackSMU 2026\n\nBuilt for **Grundfos**. Identifies commercial and industrial buildings across the continental US that are strong candidates for rainwater harvesting systems, ranked by opportunity score and visualized on an interactive national map.\n\n---\n\n## The Problem\n\nFinding the right buildings for water-reuse systems is a manual, expensive prospecting problem. Sales teams rely on gut instinct and cold outreach across "
+    }
+  },
+  {
+    "id": "repo:Alpha_pizza_base",
+    "type": "repo",
+    "label": "Alpha_pizza_base",
+    "properties": {
+      "description": "Pizza Database System",
+      "url": "https://github.com/22Ujjwal/Alpha_pizza_base",
+      "language": "HTML",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# Pizza Company Database - HTML Forms Documentation\n\n## Project Overview\nPhase 3 of the Pizza Company Database Management System: HTML Forms & CSS Development.\n\n\nCommit log 1:\n- **Dashboard**\n- **Inventory Management Interface**\n- **Employee Management Interface**\n\n\n\n"
+    }
+  },
+  {
+    "id": "repo:AA_hacks_slides",
+    "type": "repo",
+    "label": "AA_hacks_slides",
+    "properties": {
+      "description": "had to have it",
+      "url": "https://github.com/22Ujjwal/AA_hacks_slides",
+      "language": "HTML",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": ""
+    }
+  },
+  {
+    "id": "repo:Airline_Crew_Sequence",
+    "type": "repo",
+    "label": "Airline_Crew_Sequence",
+    "properties": {
+      "description": "Identifying pairs of flights that should not be part of the same pilot's sequence",
+      "url": "https://github.com/22Ujjwal/Airline_Crew_Sequence",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# Airline Crew Sequence Risk Analysis\n\nA data-driven framework for identifying airport pair sequences that are disproportionately likely to cause cascading weather-related delays for connecting crews. Built on BTS on-time performance data and real-time METAR weather observations.\n\n## Problem\n\nAirline crews often fly multi-leg sequences: **Airport A → DFW (hub) → Airport B**. When weather affects both legs simultaneously — or when a delay on the first leg propagates through the hub — the crew seq"
+    }
+  },
+  {
+    "id": "repo:secure_voting_formula",
+    "type": "repo",
+    "label": "secure_voting_formula",
+    "properties": {
+      "description": "blockchain based voting system",
+      "url": "https://github.com/22Ujjwal/secure_voting_formula",
+      "language": null,
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": ""
+    }
+  },
+  {
+    "id": "repo:Denim_AI-Browser",
+    "type": "repo",
+    "label": "Denim_AI-Browser",
+    "properties": {
+      "description": "Winner - Agentic Browser that spins the web",
+      "url": "https://github.com/22Ujjwal/Denim_AI-Browser",
+      "language": "JavaScript",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# Denim Browser - Dyna AI Agent 🤖\n\nA comprehensive browser automation agent that combines **Browserbase Node.js SDK**, **Playwright**, and **Gemini AI** for intelligent web automation with a beautiful glass morphism UI.\n\n![godown](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDk0bXF3ZHE4MmZzZzRiajB4dWY3MDBjMzN0MTc2aTNhNTU0ejZrZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Js7cqIkpxFy0bILFFA/giphy.gif)\n\n![SS1](denim1.png)\n\n![SS2](denim2.png)\n\n![SS3](denim3.png)\n\n![SS4](denim4.png)\n\n![Yay!](http"
+    }
+  },
+  {
+    "id": "repo:OptiqAid",
+    "type": "repo",
+    "label": "OptiqAid",
+    "properties": {
+      "description": "Guides blinds with vocal directions - HackUTD",
+      "url": "https://github.com/22Ujjwal/OptiqAid",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# OptiqAid 👁️✨\n\n> Bringing vision to life through the power of AI and iPhone technology\n\n## 💡 Inspiration\n\nWatching a blind friend navigate the world sparked an idea: what if we could use modern smartphone technology to help people see in new ways? OptiqAid was born from this simple yet powerful vision.\n\n## 🌟 What It Does\n\nOptiqAid transforms your iPhone into an intelligent visual assistant that understands the world around you. Using advanced camera technology and depth sensing, it provides "
+    }
+  },
+  {
+    "id": "repo:Multimodal_Agent",
+    "type": "repo",
+    "label": "Multimodal_Agent",
+    "properties": {
+      "description": "Winner Aven headstarter ",
+      "url": "https://github.com/22Ujjwal/Multimodal_Agent",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# HELOC Agent Web App\n\nA sophisticated web application featuring voice and text chatbot integration with Vapi for a HELOC company offering credit cards. Built with Next.js, React, and modern UI components.\n\n![Webapp](Webapp.png)\n![Workflow](Aven-chatbot.png)\n![Workflow](Workflow.png)\n\n## Features\n\n- **Modern UI Design**: Inspired by Wellfound.com with glass-morphism effects\n- **AI Voice & Text Chat**: Integrated with Vapi for real-time voice responses\n- **3D Agent Animation**: Unity WebGL integr"
+    }
+  },
+  {
+    "id": "repo:Dakota",
+    "type": "repo",
+    "label": "Dakota",
+    "properties": {
+      "description": "AI friend directly with autonomous powers",
+      "url": "https://github.com/22Ujjwal/Dakota",
+      "language": "JavaScript",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# OpenAI Dakota 🤖\n\n**OpenAI Dakota** is the more sentient autonomy stack for the browser. It fuses OpenAI's multimodal reasoning with Browserbase cloud sessions, Playwright automation, realtime vision, and an expressive avatar so Dakota can see the page, act on it, and respond like a living teammate.\n\n\n![Graphic](vdakortaAvatar.png)\n\n## 🌟 What makes Dakota different?\n- **OpenAI-native cognition:** GPT-4o (and friends) drive planning, grounding, and evaluation for every step Dakota takes.\n- **E"
+    }
+  },
+  {
+    "id": "repo:llm-not-close-to-frontier",
+    "type": "repo",
+    "label": "llm-not-close-to-frontier",
+    "properties": {
+      "description": "Practical try of building personal language model",
+      "url": "https://github.com/22Ujjwal/llm-not-close-to-frontier",
+      "language": null,
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# Things in Consideration\n \n ## Tokenizer, Architecture and Training, Systems (Kernels, Parallelism, and Inference), Scaling Laws, Data Curation, Alignment\n"
+    }
+  },
+  {
+    "id": "repo:Chill-kill-CS3354",
+    "type": "repo",
+    "label": "Chill-kill-CS3354",
+    "properties": {
+      "description": "Group 11 CS3354",
+      "url": "https://github.com/22Ujjwal/Chill-kill-CS3354",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "## About OneStopSwitch2\nThis project is Group 11's project for CS 3354. We have implemented a chatbot that answers questions on the Nintendo Switch 2. This product is meant to educate potential buyers or parents of potential buyers on the \n\n<!-- GETTING STARTED -->\n## Getting Started\n\nTo get a local copy up and running follow these simple example steps.\n\n### Prerequisites\n\nThis is a list of things you need to use the software.\n* npm (installation command below)\n  ```sh\n  npm install npm@latest -"
+    }
+  },
+  {
+    "id": "repo:AI-Coach",
+    "type": "repo",
+    "label": "AI-Coach",
+    "properties": {
+      "description": "Trusted Ally - AI Career Guide ",
+      "url": "https://github.com/22Ujjwal/AI-Coach",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# AI App to Help Professionals Navigate Their Career Journey 🚀   \n## [DeepSeek-R1 Model](https://ollama.com/library/deepseek-r1:1.5b) \n### *DeepThink R1 Build* (sounds like a real estate agent, but it’s way smarter! 😉)  \n\n---\n![alt text](https://github.com/22Ujjwal/AI-App/blob/main/TrustedAllyAI.png)\n#### **How It Works** ✨  \n\n1. **Skill Assessment** 🔍  \n   - Upload your current resume, and the AI will analyze it to suggest skills that can boost your professional growth. Think of it as your c"
+    }
+  },
+  {
+    "id": "repo:MySpace",
+    "type": "repo",
+    "label": "MySpace",
+    "properties": {
+      "description": "Here is some practice material",
+      "url": "https://github.com/22Ujjwal/MySpace",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# MySpace - I post some random programs here 🖥️\n\n*I built fun little projects :))* \n\n1. [**Review Pandas code**](https://github.com/22Ujjwal/MySpace/blob/main/pandasbrushup.ipynb) -->**Actual Pandas Implementation Guide😳** *playing with cool datasets*       \n   \n2. [SAS project](https://github.com/22Ujjwal/WintiML/blob/main/AssessmentQ1_program.sas) - Essential tool in my SaS programming.\n3. [Cutecode](https://github.com/22Ujjwal/MySpace/blob/main/Dsa_ques.ipynb) - Daily DSA dose\n\n**Happy Codi"
+    }
+  },
+  {
+    "id": "repo:WintiML",
+    "type": "repo",
+    "label": "WintiML",
+    "properties": {
+      "description": "My multi-project Repo",
+      "url": "https://github.com/22Ujjwal/WintiML",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# WintiML 🎧 \n\n<code style=\"color : Greenyellow\"> new project live soon! </code>\n*I have random things I keep trying and post some here*\n\n## 1. [Documentation Webscapper [creates HTML file]](https://github.com/22Ujjwal/WintiML/blob/115f068956e3d437244575eaa76709fb75162ede/WebScrapper/MyLibWebScapperToHTML.py)\n**Fetches data from websites and present it in a structured and visually appealing format, enhancing data quality and organization**\n\n## 2. [Documentation webscapper [Creates interactive ma"
+    }
+  },
+  {
+    "id": "repo:MyRAG",
+    "type": "repo",
+    "label": "MyRAG",
+    "properties": {
+      "description": "I am lovin' it, fun fun!",
+      "url": "https://github.com/22Ujjwal/MyRAG",
+      "language": null,
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# RAG Program\n<code>I am lovin' it, fun!</code>\n\n## Key notes on RAG to Building one. \n\nModel - Gemini, Groq {2 RAGs different Models}\n### To run\ncreate a venv\n\n## Core Concept\nRAG combines two main approaches:\n- **Retrieval-based methods**: Fetching relevant documents using vector search.\n  - *Think of this like a librarian finding the right books for your question.*\n- **Generation-based methods**: Using a Large Language Model (LLM) like GPT-4 or Llama to generate responses based on the retriev"
+    }
+  },
+  {
+    "id": "repo:Web3",
+    "type": "repo",
+    "label": "Web3",
+    "properties": {
+      "description": "fun writing smart contracts",
+      "url": "https://github.com/22Ujjwal/Web3",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "readme_excerpt": "# Web3\n## Blockchain - Building my Crypt00\n\nI like learning about blockchain, it is my area of interest. --> I'm always down discussing web3\n- **Python**\n- **Solidity**\n\nThis repo will have smart contracts view for public soon!!\n"
+    }
+  }
+]

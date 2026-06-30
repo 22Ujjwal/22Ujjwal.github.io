@@ -16,7 +16,7 @@ const RATE_LIMIT_MAX = 15;
 const RATE_LIMIT_WINDOW_SEC = 60;
 
 const GEMINI_MODEL = 'gemini-2.5-flash';
-const EMBEDDING_MODEL = 'text-embedding-004';
+const EMBEDDING_MODEL = 'gemini-embedding-001';
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 
 const CORS_HEADERS = {
