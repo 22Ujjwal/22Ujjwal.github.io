@@ -80,7 +80,7 @@
             <div class="contact-content">
                 <h2>Let's talk</h2>
                 <p>Open to AI engineering roles, collaborations, and interesting problems.</p>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalgupta2294@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalgupta2294@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-btn" id="contactBtn" data-email="ujjwalgupta2294@gmail.com">
                     Get in Touch <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -99,5 +99,32 @@
     <script src="js/background.js"></script>
     <script src="js/main.js"></script>
     <script src="js/chat.js"></script>
+    <script>
+        (function () {
+            var btn = document.getElementById('contactBtn');
+            if (!btn) return;
+            btn.addEventListener('click', function (e) {
+                var email = btn.getAttribute('data-email');
+                var webUrl = btn.getAttribute('href');
+                var ua = navigator.userAgent || '';
+                var isIOS = /iPad|iPhone|iPod/.test(ua);
+                var isAndroid = /Android/.test(ua);
+                if (!isIOS && !isAndroid) return; // desktop: use default web href
+                e.preventDefault();
+                var appUrl = isAndroid
+                    ? 'intent://co?to=' + email + '#Intent;scheme=googlegmail;package=com.google.android.gm;end'
+                    : 'googlegmail://co?to=' + email;
+                var fallback = setTimeout(function () {
+                    window.location.href = webUrl;
+                }, 1200);
+                var onHide = function () {
+                    clearTimeout(fallback);
+                    document.removeEventListener('visibilitychange', onHide);
+                };
+                document.addEventListener('visibilitychange', onHide);
+                window.location.href = appUrl;
+            });
+        })();
+    </script>
 </body>
 </html>
