@@ -486,15 +486,22 @@ async function sendLeadNotificationEmail(email, history, currentMessage) {
 function handleLeadCapture(sessionId, message, history) {
   const email = extractEmailFromMessage(message);
   if (!email || email === OWNER_EMAIL) return; // ignore if no email or it's your own
-  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) return;
+  if (!process.env.RESEND_API_KEY) return; // no point continuing without email service
 
-  // Fire-and-forget: check dedup, save, notify
+  const kvReady = !!(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
+
+  // Fire-and-forget: check dedup (if KV available), notify, then mark as done
   (async () => {
     try {
-      const alreadyNotified = await isLeadAlreadyNotified(email);
-      if (alreadyNotified) return;
-      await saveLeadToKV(sessionId, email, history, message);
+      if (kvReady) {
+        const alreadyNotified = await isLeadAlreadyNotified(email);
+        if (alreadyNotified) return;
+      }
+      // Send email first — only mark as notified after success
       await sendLeadNotificationEmail(email, history, message);
+      if (kvReady) {
+        await saveLeadToKV(sessionId, email, history, message);
+      }
     } catch (e) {
       // Never block the chat response
     }
