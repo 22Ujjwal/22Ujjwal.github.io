@@ -3,6 +3,22 @@
     ? 'http://localhost:3000/api/chat'
     : '/api/chat';
 
+  // Safely render markdown bold/italic/newlines to HTML (HTML-escaped first to prevent XSS)
+  function renderMarkdown(text) {
+    var escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+    // Bold: **text**
+    escaped = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    // Italic: *text* (single asterisk, not part of **)
+    escaped = escaped.replace(/(?<!\*)\*(?!\*)([^*]+)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
+    // Newlines to <br>
+    escaped = escaped.replace(/\n/g, '<br>');
+    return escaped;
+  }
+
   var sessionId = sessionStorage.getItem('chatSessionId');
   if (!sessionId) {
     sessionId = crypto.randomUUID();
@@ -27,7 +43,11 @@
     messageContent.className = 'message-content';
 
     var text = document.createElement('p');
-    text.textContent = content;
+    if (isUser) {
+      text.textContent = content;
+    } else {
+      text.innerHTML = renderMarkdown(content);
+    }
     messageContent.appendChild(text);
 
     messageDiv.appendChild(messageContent);
@@ -154,7 +174,7 @@
                   bubble = createStreamingBubble();
                 }
                 fullText += parsed.text;
-                bubble.textContent = fullText;
+                bubble.innerHTML = renderMarkdown(fullText);
                 scrollToBottom();
               }
             } catch (e) {
