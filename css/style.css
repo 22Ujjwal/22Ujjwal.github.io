@@ -301,6 +301,7 @@ body {
 .message.assistant .message-content {
     background: rgba(255, 255, 255, 0.1);
     border-top-left-radius: 4px;
+    text-align: left;
 }
 
 .message.user .message-content {
