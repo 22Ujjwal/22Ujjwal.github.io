@@ -25,6 +25,9 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
 };
 
+const EMAIL_REGEX = /\b[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}\b/;
+const OWNER_EMAIL = 'ujjwalgupta2294@gmail.com';
+
 // ---------------------------------------------------------------------------
 // Intent classification patterns (local, no API call)
 // ---------------------------------------------------------------------------
@@ -160,7 +163,7 @@ function buildSystemPrompt(contextEntities, message, history) {
     recruiterDirective = `
 RECRUITER MODE ACTIVE:
 The user appears to be seriously interested (${recruiter.messageCount} messages exchanged, recruiter signals detected).
-Naturally work into your response something like: "Looks like you're seriously interested! I could draft a comprehensive info package for you. Drop your email and I'll get everything together — Ujjwal will review it and give me the green light to send it your way."
+Naturally work into your response something like: "Looks like you're seriously interested! Drop your email and I'll ping Ujjwal right now with your address and our full chat — he'll be in touch."
 Make it feel organic, not forced. Only suggest it once per conversation — if you've already asked, don't repeat.`;
   }
 
@@ -418,6 +421,87 @@ async function streamGeminiResponse(systemPrompt, history, userMessage) {
 }
 
 // ---------------------------------------------------------------------------
+// Lead capture — email detection, KV storage, Resend notification
+// ---------------------------------------------------------------------------
+
+function extractEmailFromMessage(message) {
+  const match = message.match(EMAIL_REGEX);
+  return match ? match[0].toLowerCase() : null;
+}
+
+async function isLeadAlreadyNotified(email) {
+  const result = await kvGet(`lead:email:${email}`);
+  return result !== null;
+}
+
+async function saveLeadToKV(sessionId, email, history, currentMessage) {
+  const payload = {
+    email,
+    sessionId,
+    capturedAt: new Date().toISOString(),
+    chatHistory: [...history, { role: 'user', text: currentMessage }],
+  };
+  // Store by email (dedup key, 30 days) and by session (for logs viewer)
+  await Promise.all([
+    kvSet(`lead:email:${email}`, payload, 60 * 60 * 24 * 30),
+    kvSet(`lead:session:${sessionId}`, payload, 60 * 60 * 24 * 30),
+  ]);
+}
+
+async function sendLeadNotificationEmail(email, history, currentMessage) {
+  if (!process.env.RESEND_API_KEY) return;
+
+  const chatLog = [...history, { role: 'user', text: currentMessage }]
+    .map((msg) => {
+      const speaker = msg.role === 'user' ? 'Visitor' : 'Bot';
+      return `${speaker}: ${msg.text || ''}`;
+    })
+    .join('\n\n');
+
+  const body = [
+    `Someone on your portfolio shared their email: ${email}`,
+    '',
+    '--- Full Chat Log ---',
+    chatLog,
+    '',
+    '--- End ---',
+    'Sent from your portfolio chatbot.',
+  ].join('\n');
+
+  await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'Portfolio Bot <onboarding@resend.dev>',
+      to: OWNER_EMAIL,
+      subject: `Portfolio Lead: ${email}`,
+      text: body,
+    }),
+  });
+}
+
+function handleLeadCapture(sessionId, message, history) {
+  const email = extractEmailFromMessage(message);
+  if (!email || email === OWNER_EMAIL) return; // ignore if no email or it's your own
+  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) return;
+
+  // Fire-and-forget: check dedup, save, notify
+  (async () => {
+    try {
+      const alreadyNotified = await isLeadAlreadyNotified(email);
+      if (alreadyNotified) return;
+      await saveLeadToKV(sessionId, email, history, message);
+      await sendLeadNotificationEmail(email, history, message);
+    } catch (e) {
+      // Never block the chat response
+    }
+  })();
+}
+
+// ---------------------------------------------------------------------------
 // Chat logging (fire-and-forget)
 // ---------------------------------------------------------------------------
 
@@ -525,6 +609,9 @@ export default async function handler(request) {
 
   // Log chat asynchronously
   logChat(sessionId, message, intent || 'unknown');
+
+  // Lead capture: detect if user shared an email, notify owner (fire-and-forget)
+  handleLeadCapture(sessionId, message, history);
 
   // Retrieve context entities
   let contextEntities = [];
