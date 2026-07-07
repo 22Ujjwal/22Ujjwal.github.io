@@ -30,22 +30,6 @@
   var chatMessages = document.getElementById('chat-messages');
   var userInput = document.getElementById('user-input');
   var sendButton = document.getElementById('send-button');
-  var suggestions = document.getElementById('chat-suggestions');
-
-  // Suggestion chips: fill input on click, hide chips, don't auto-send
-  if (suggestions) {
-    suggestions.addEventListener('click', function (e) {
-      var chip = e.target.closest('.suggestion-chip');
-      if (!chip) return;
-      userInput.value = chip.getAttribute('data-text');
-      suggestions.classList.add('hidden');
-      userInput.focus();
-    });
-  }
-
-  function hideSuggestions() {
-    if (suggestions) suggestions.classList.add('hidden');
-  }
 
   function scrollToBottom() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -126,7 +110,6 @@
     var message = userInput.value.trim();
     if (!message) return;
 
-    hideSuggestions();
     addMessage(message, true);
     userInput.value = '';
     history.push({ role: 'user', content: message });
