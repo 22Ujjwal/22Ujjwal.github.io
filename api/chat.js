@@ -449,7 +449,10 @@ async function saveLeadToKV(sessionId, email, history, currentMessage) {
 }
 
 async function sendLeadNotificationEmail(email, history, currentMessage) {
-  if (!process.env.RESEND_API_KEY) return;
+  if (!process.env.RESEND_API_KEY) {
+    console.error('[Lead] RESEND_API_KEY is not set');
+    return;
+  }
 
   const chatLog = [...history, { role: 'user', text: currentMessage }]
     .map((msg) => {
@@ -468,7 +471,7 @@ async function sendLeadNotificationEmail(email, history, currentMessage) {
     'Sent from your portfolio chatbot.',
   ].join('\n');
 
-  await fetch('https://api.resend.com/emails', {
+  const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
@@ -481,6 +484,13 @@ async function sendLeadNotificationEmail(email, history, currentMessage) {
       text: body,
     }),
   });
+
+  const resBody = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    console.error('[Lead] Resend API error:', res.status, JSON.stringify(resBody));
+  } else {
+    console.log('[Lead] Email sent successfully, id:', resBody.id);
+  }
 }
 
 function handleLeadCapture(sessionId, message, history) {
@@ -503,7 +513,7 @@ function handleLeadCapture(sessionId, message, history) {
         await saveLeadToKV(sessionId, email, history, message);
       }
     } catch (e) {
-      // Never block the chat response
+      console.error('[Lead] handleLeadCapture error:', e?.message || e);
     }
   })();
 }
