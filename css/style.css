@@ -375,6 +375,41 @@ body {
     box-shadow: 0 0 10px rgba(0, 112, 243, 0.5);
 }
 
+.chat-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem 0.75rem;
+}
+
+.chat-suggestions.hidden {
+    display: none;
+}
+
+.suggestion-chip {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.78rem;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.suggestion-chip:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.suggestion-chip:active {
+    background: rgba(0, 112, 243, 0.25);
+    border-color: var(--primary-color);
+}
+
 /* Scrollbar styling */
 .chat-messages::-webkit-scrollbar {
     width: 6px;
