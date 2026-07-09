@@ -58,7 +58,7 @@ const POSTS = [
     content: `
 <p><em>Moscone Center, San Francisco. June 15–18, 2026. I attended all four days.</em></p>
 
-<p>30,000+ data and AI professionals from 150+ countries descended on Moscone, and I was one of them — sessions in Moscone West, expo sprawled across Moscone South, and my step counter having its best week of the year. I planned the whole trip myself, no corporate travel desk, which I recommend exactly once for the character development.</p>
+<p>30,000+ data and AI professionals from 150+ countries descended on Moscone, and I was one of them — sessions in Moscone West, expo sprawled across Moscone South, and my step counter having its best week of the year. I planned the whole trip myself, no corporate travel desk, which I recommend exactly once for the character development. Passes came with the Student Fellow badge, shoutout to my coordinator for sorting those out.</p>
 
 <h3>Day one: student fellows by day, keynotes by night</h3>
 <p>Monday was the best kind of conference day — the one before the conference fully swallows you. I'm a <strong>Databricks Student Fellow</strong>, so I spent most of it with the fellows cohort: a room full of people at the same weird, wonderful stage of career where every conversation is half "what are you building" and half "what should I be building." Easily some of the most energizing conversations of the week, and none of them required a badge scan.</p>
