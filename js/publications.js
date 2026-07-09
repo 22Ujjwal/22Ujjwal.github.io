@@ -138,7 +138,6 @@
         </div>
         <div class="row-side">
           <span>${post.readMins} MIN</span>
-          <span class="post-views" data-views-slug="${post.slug}" hidden><i class="far fa-eye"></i><span class="view-num">0</span></span>
           <span class="row-arrow">&rarr;</span>
         </div>
       </a>`;
@@ -161,7 +160,6 @@
     function renderRest() {
       const visible = activeTag ? rest.filter((p) => p.tags.includes(activeTag)) : rest;
       allEl.innerHTML = visible.map((p) => postCard(p)).join('');
-      fetchViewCounts(visible.map((p) => p.slug)).then(applyViewCounts);
     }
 
     if (filterEl) {
@@ -178,7 +176,6 @@
     }
 
     renderRest();
-    fetchViewCounts(featured.map((p) => p.slug)).then(applyViewCounts);
     return true;
   }
 
@@ -221,7 +218,6 @@
       <div class="post-header-meta">
         <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
         <span><i class="far fa-clock"></i> ${post.readMins} MIN READ</span>
-        <span class="post-views" data-views-slug="${post.slug}" hidden><i class="far fa-eye"></i> <span class="view-num">0</span> VIEWS</span>
       </div>
       ${heroFigure(post)}
       <div class="post-body">${post.content}</div>
@@ -229,10 +225,6 @@
 
     document.getElementById('post-subscribe')?.removeAttribute('hidden');
     document.getElementById('post-nav')?.removeAttribute('hidden');
-
-    recordView(post.slug).then((views) => {
-      if (typeof views === 'number') applyViewCounts({ [post.slug]: views });
-    });
     return true;
   }
 
