@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Cover by Ujjwal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/publications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/Dp_sticker.png">
+</head>
+<body class="pub-light">
+    <nav class="navbar">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="publications.html" class="active">Publications</a>
+        </div>
+    </nav>
+
+    <main class="pub-main">
+        <article class="post-article" id="post-article">
+            <p class="post-loading">Loading post…</p>
+        </article>
+
+        <div class="post-nav" id="post-nav" hidden>
+            <a href="publications.html" class="back-link"><i class="fas fa-arrow-left"></i> ALL POSTS</a>
+        </div>
+
+        <section class="subscribe-box subscribe-bottom" id="post-subscribe" hidden>
+            <div class="subscribe-copy">
+                <h3>Get the next one in your inbox</h3>
+                <p>Subscribe to Agentic Cover — new posts and conference coverage.</p>
+            </div>
+            <form class="subscribe-form" data-subscribe-form>
+                <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+            <p class="subscribe-status" data-subscribe-status role="status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026. Ujjwal Gupta</p>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/ujjwalgupta-/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/22Ujjwal" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:ujjwalgupta2294@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/posts-data.js"></script>
+    <script src="js/publications.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

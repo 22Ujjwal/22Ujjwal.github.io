@@ -52,6 +52,16 @@
 
     messageDiv.appendChild(messageContent);
     chatMessages.appendChild(messageDiv);
+
+    // iMessage-style read receipt: "Delivered" under the latest user bubble only
+    if (isUser) {
+      var old = chatMessages.querySelectorAll('.delivered');
+      for (var i = 0; i < old.length; i++) old[i].remove();
+      var delivered = document.createElement('div');
+      delivered.className = 'delivered';
+      delivered.textContent = 'Delivered';
+      chatMessages.appendChild(delivered);
+    }
     scrollToBottom();
 
     return text;

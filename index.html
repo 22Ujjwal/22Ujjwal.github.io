@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ujjwal Gupta - Portfolio</title>
+    <title>Ujjwal Gupta — AI Engineer</title>
+    <meta name="description" content="Ujjwal Gupta — AI engineer building agents that ship. Projects, writing at Agentic Cover, and an assistant that answers for me.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="icon" type="image/png" href="images/Dp_sticker.png">
 </head>
-<body>
+<body class="home-v2">
     <canvas id="bg-canvas"></canvas>
     <nav class="navbar">
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
@@ -19,24 +24,27 @@
         </button>
         <div class="nav-links" id="nav-links">
             <a href="#home">Home</a>
-            <a href="#projects">Projects</a>
+            <a href="projects.html">Projects</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-               </div>
+            <a href="publications.html">Publications</a>
+        </div>
     </nav>
 
     <main>
-        <section id="home" class="hero" style="margin-top: 100px;">
-            <div class="macbook-window">
-                <div class="window-controls">
-                    <span class="control-dot red"></span>
-                    <span class="control-dot yellow"></span>
-                    <span class="control-dot green"></span>
-         </div>
-                <div class="window-content">
-                    <img src="images/Cover_UG.png" alt="Ujjwal Gupta Cover">
-         </div>
-      </div>
+        <!-- ============ HERO ============ -->
+        <section id="home" class="hero-v2">
+            <div class="hero-copy">
+                <p class="hero-kicker">AI ENGINEER — AGENTIC SYSTEMS, SHIPPED</p>
+                <h1 class="hero-name">Ujjwal Gupta</h1>
+                <p class="hero-tagline">I build agents that ship. Some of them even do what I asked.</p>
+                <p class="hero-sub">Agentic systems, retrieval, evals, and the unglamorous harness work that keeps it all alive in production.</p>
+                <div class="hero-ctas">
+                    <a class="btn-primary" href="projects.html">See the work <i class="fas fa-arrow-right"></i></a>
+                    <a class="btn-ghost" href="https://github.com/22Ujjwal" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+                <p class="hero-hint"><i class="fas fa-arrow-right hero-hint-arrow"></i> Or skip all this and interrogate my assistant. It's briefed. Mostly.</p>
+            </div>
 
             <div class="imessage-window">
                 <div class="window-controls-strip">
@@ -53,34 +61,76 @@
                 <div class="chat-messages" id="chat-messages">
                     <div class="first-message">
                         <img src="images/Hi_sticker.png" alt="Hi" class="first-emoji">
-         </div>         
+                    </div>
                     <div class="message assistant">
-                        
-          					   </div>
-
-                        </div>
+                    </div>
+                </div>
                 <div class="chat-input-container">
                     <div class="chat-input">
                         <input type="text" id="user-input" placeholder="iMessage">
-                        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
-          					   </div>
-                        </div>
-            </div>
-
-            <h1>UJJWAL GUPTA</h1>
-            <p class="tagline">AI Engineer &bull; Building intelligent systems that ship</p>
-
-            <div class="social-links">
-                <a href="https://github.com/22Ujjwal" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ujjwalgupta-/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:ujjwalgupta2294@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <button id="send-button"><i class="fas fa-arrow-up"></i></button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="contact">
+        <!-- ============ PROJECTS ============ -->
+        <section id="projects" class="section-v2">
+            <div class="section-head">
+                <h2 class="section-title">// PROJECTS</h2>
+                <a class="section-link" href="projects.html">all projects <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <p class="section-lede">Each window is a repo. Production scars implied.</p>
+            <div class="proj-track" id="proj-track" tabindex="0" aria-label="Projects, horizontally scrollable"></div>
+            <p class="gh-sync" id="gh-sync">syncing with GitHub…</p>
+        </section>
+
+        <!-- ============ WRITING ============ -->
+        <section id="writing" class="section-v2">
+            <div class="section-head">
+                <h2 class="section-title">// WRITING</h2>
+                <a class="section-link" href="publications.html">all posts <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="writing-list" id="writing-list"></div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section id="about" class="section-v2">
+            <div class="section-head">
+                <h2 class="section-title">// ABOUT</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <p>AI engineer. I spend my days building agentic systems — retrieval, tool design, evals, harnesses — and my evenings <a href="publications.html">writing</a> about why they broke.</p>
+                    <p>Recently: covered <a href="post.html?slug=data-ai-summit-2026">Data + AI Summit 2026</a> (Databricks Student Fellow) and <a href="post.html?slug=ai-engineer-worlds-fair-2026">AI Engineer World's Fair 2026</a> from the floor. Currently: working on a book, out September 2026. Perpetually: explaining to my agents that "rm -rf" was not the assignment.</p>
+                    <div class="about-tags">
+                        <span>AGENTS</span><span>RETRIEVAL</span><span>EVALS</span><span>CONTEXT ENGINEERING</span><span>HACKATHON WINNER ×4</span>
+                    </div>
+                </div>
+                <!-- Photo strip: drop your photos into images/ and add <figure> entries here.
+                     Each needs: <img src> + <figcaption> one-liner. -->
+                <div class="photo-strip" id="photo-strip">
+                    <figure class="polaroid">
+                        <img src="images/dais26-official.jpg" alt="Data + AI Summit 2026">
+                        <figcaption>DAIS '26 — four days, one stadium afterparty</figcaption>
+                    </figure>
+                    <figure class="polaroid">
+                        <img src="images/aiewf26-official.jpg" alt="AI Engineer World's Fair 2026">
+                        <figcaption>AIEWF '26 — 29 tracks, zero regrets</figcaption>
+                    </figure>
+                    <figure class="polaroid polaroid-slot">
+                        <img src="images/laptop_sticker.png" alt="Add your photo">
+                        <figcaption>your photo here — images/ + one line in index.html</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="contact section-v2">
             <div class="contact-content">
-                <h2>Let's talk</h2>
-                <p>Open to AI engineering roles, collaborations, and interesting problems.</p>
+                <h2 class="contact-title">Let's talk</h2>
+                <p>Open to AI engineering roles, collaborations, media passes, and interesting problems. Response time: faster than my agents.</p>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalgupta2294@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-btn" id="contactBtn" data-email="ujjwalgupta2294@gmail.com">
                     Get in Touch <i class="fas fa-arrow-right"></i>
                 </a>
@@ -88,18 +138,20 @@
         </section>
     </main>
 
-   <footer>
+    <footer>
         <p>© 2026. Ujjwal Gupta</p>
         <div class="footer-social">
             <a href="https://www.linkedin.com/in/ujjwalgupta-/" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/22Ujjwal" target="_blank"><i class="fab fa-github"></i></a>
             <a href="mailto:ujjwalgupta2294@gmail.com"><i class="fas fa-envelope"></i></a>
-         </div>
+        </div>
     </footer>
 
     <script src="js/background.js"></script>
     <script src="js/main.js"></script>
     <script src="js/chat.js"></script>
+    <script src="js/posts-data.js"></script>
+    <script src="js/projects.js"></script>
     <script>
         (function () {
             var btn = document.getElementById('contactBtn');
@@ -118,11 +170,7 @@
                 var fallback = setTimeout(function () {
                     window.location.href = webUrl;
                 }, 1200);
-                var onHide = function () {
-                    clearTimeout(fallback);
-                    document.removeEventListener('visibilitychange', onHide);
-                };
-                document.addEventListener('visibilitychange', onHide);
+                window.addEventListener('pagehide', function () { clearTimeout(fallback); }, { once: true });
                 window.location.href = appUrl;
             });
         })();
