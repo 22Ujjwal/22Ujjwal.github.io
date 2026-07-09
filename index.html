@@ -40,8 +40,9 @@
                 <p class="hero-tagline">I build agents that ship. Some of them even do what I asked.</p>
                 <p class="hero-sub">Agentic systems, retrieval, evals, and the unglamorous harness work that keeps it all alive in production.</p>
                 <div class="hero-ctas">
-                    <a class="btn-primary" href="projects.html">See the work <i class="fas fa-arrow-right"></i></a>
+                    <a class="btn-primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalgupta2294@gmail.com" target="_blank" rel="noopener noreferrer" id="heroContactBtn" data-email="ujjwalgupta2294@gmail.com">Get in Touch <i class="fas fa-arrow-right"></i></a>
                     <a class="btn-ghost" href="https://github.com/22Ujjwal" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                    <a class="btn-ghost" href="https://www.linkedin.com/in/ujjwalgupta-/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
                 <p class="hero-hint"><i class="fas fa-arrow-right hero-hint-arrow"></i> Or skip all this and interrogate my assistant. It's briefed. Mostly.</p>
             </div>
@@ -102,7 +103,7 @@
             <div class="about-grid">
                 <div class="about-card">
                     <p>AI engineer. I spend my days building agentic systems — retrieval, tool design, evals, harnesses — and my evenings <a href="publications.html">writing</a> about why they broke.</p>
-                    <p>Recently: covered <a href="post.html?slug=data-ai-summit-2026">Data + AI Summit 2026</a> (Databricks Student Fellow) and <a href="post.html?slug=ai-engineer-worlds-fair-2026">AI Engineer World's Fair 2026</a> from the floor. Currently: working on a book, out September 2026. Perpetually: explaining to my agents that "rm -rf" was not the assignment.</p>
+                    <p>Recently: covered <a href="post.html?slug=data-ai-summit-2026">Data + AI Summit 2026</a> (Databricks Student Fellow) and <a href="post.html?slug=ai-engineer-worlds-fair-2026">AI Engineer World's Fair 2026</a> from the floor. Perpetually: explaining to my agents that "rm -rf" was not the assignment.</p>
                     <div class="about-tags">
                         <span>AGENTS</span><span>RETRIEVAL</span><span>EVALS</span><span>CONTEXT ENGINEERING</span><span>HACKATHON WINNER ×4</span>
                     </div>
@@ -154,25 +155,29 @@
     <script src="js/projects.js"></script>
     <script>
         (function () {
-            var btn = document.getElementById('contactBtn');
-            if (!btn) return;
-            btn.addEventListener('click', function (e) {
-                var email = btn.getAttribute('data-email');
-                var webUrl = btn.getAttribute('href');
-                var ua = navigator.userAgent || '';
-                var isIOS = /iPad|iPhone|iPod/.test(ua);
-                var isAndroid = /Android/.test(ua);
-                if (!isIOS && !isAndroid) return; // desktop: use default web href
-                e.preventDefault();
-                var appUrl = isAndroid
-                    ? 'intent://co?to=' + email + '#Intent;scheme=googlegmail;package=com.google.android.gm;end'
-                    : 'googlegmail://co?to=' + email;
-                var fallback = setTimeout(function () {
-                    window.location.href = webUrl;
-                }, 1200);
-                window.addEventListener('pagehide', function () { clearTimeout(fallback); }, { once: true });
-                window.location.href = appUrl;
-            });
+            function setupGmailBtn(id) {
+                var btn = document.getElementById(id);
+                if (!btn) return;
+                btn.addEventListener('click', function (e) {
+                    var email = btn.getAttribute('data-email');
+                    var webUrl = btn.getAttribute('href');
+                    var ua = navigator.userAgent || '';
+                    var isIOS = /iPad|iPhone|iPod/.test(ua);
+                    var isAndroid = /Android/.test(ua);
+                    if (!isIOS && !isAndroid) return;
+                    e.preventDefault();
+                    var appUrl = isAndroid
+                        ? 'intent://co?to=' + email + '#Intent;scheme=googlegmail;package=com.google.android.gm;end'
+                        : 'googlegmail://co?to=' + email;
+                    var fallback = setTimeout(function () {
+                        window.location.href = webUrl;
+                    }, 1200);
+                    window.addEventListener('pagehide', function () { clearTimeout(fallback); }, { once: true });
+                    window.location.href = appUrl;
+                });
+            }
+            setupGmailBtn('contactBtn');
+            setupGmailBtn('heroContactBtn');
         })();
     </script>
 </body>

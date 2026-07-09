@@ -14,18 +14,29 @@
       title: 'Denim',
       desc: 'Agentic browser that spins the web — navigates, clicks, and gets things done while you watch.',
       tags: ['AGENTS', 'BROWSER'],
+      winner: true,
+    },
+    {
+      repo: 'DJ-Bestie',
+      url: 'https://github.com/suryajasper/DJ-Bestie',
+      title: 'DJ Bestie',
+      desc: 'Mood-based music recommendation using face, body, and voice — three real-time modalities feeding Spotify. Winner Overall at TAMUHack 2025.',
+      tags: ['MULTIMODAL', 'HACKATHON'],
+      winner: true,
     },
     {
       repo: 'Multimodal_Agent',
       title: 'Multimodal Agent',
       desc: 'Voice + vision agent built for the Aven × Headstarter challenge. Talks, sees, and occasionally listens.',
       tags: ['AGENTS', 'MULTIMODAL'],
+      winner: true,
     },
     {
       repo: 'saving_water',
       title: 'Saving Water',
       desc: 'Water-conservation platform built in a weekend at HackSMU on caffeine and righteous purpose.',
       tags: ['SUSTAINABILITY', 'FULL-STACK'],
+      winner: true,
     },
     {
       repo: 'Dakota',
@@ -101,19 +112,21 @@
   function cardHtml(p, withImage) {
     const tags = (p.tags || []).map((t) => `<span>${escapeHtml(t)}</span>`).join('');
     const stars = p.stars ? `<span class="stars"><i class="far fa-star"></i> ${p.stars}</span>` : '';
-    const lang = p.language ? `<span class="stars">${escapeHtml(p.language.toUpperCase())}</span>` : '';
+    const lang = '';
     const img = withImage
       ? `<div class="proj-shot"><img src="${ogImage(p.repo)}" alt="${escapeHtml(p.title)} repository preview" loading="lazy"></div>`
       : '';
+    const trophy = p.winner ? ' 🏆' : '';
+    const href = p.url || `https://github.com/${GH_USER}/${encodeURIComponent(p.repo)}`;
     return `
-      <a class="proj-card" href="https://github.com/${GH_USER}/${encodeURIComponent(p.repo)}" target="_blank" rel="noopener">
+      <a class="proj-card" href="${href}" target="_blank" rel="noopener">
         <div class="proj-chrome">
           <div class="proj-dots"><span></span><span></span><span></span></div>
           <span class="proj-repo">${escapeHtml(p.repo)}</span>
         </div>
         ${img}
         <div class="proj-body">
-          <h3 class="proj-title">${escapeHtml(p.title)}</h3>
+          <h3 class="proj-title">${escapeHtml(p.title)}${trophy}</h3>
           <p class="proj-desc">${escapeHtml(p.desc)}</p>
           <div class="proj-meta">${tags}${lang}${stars}</div>
         </div>
