@@ -206,7 +206,7 @@
     if (!post) {
       article.innerHTML = `
         <h1 class="post-title">Post not found</h1>
-        <p>That link doesn't match anything here. <a href="publications.html">Back to all posts</a>.</p>`;
+        <p>That link doesn't match anything here. <a href="/publications">Back to all posts</a>.</p>`;
       return true;
     }
 
