@@ -15,7 +15,7 @@ export const config = { runtime: 'edge' };
 const RATE_LIMIT_MAX = 15;
 const RATE_LIMIT_WINDOW_SEC = 60;
 
-const GEMINI_MODEL = 'gemini-flash-latest';
+const GEMINI_MODEL = 'gemini-3.5-flash-lite';
 const EMBEDDING_MODEL = 'gemini-embedding-001';
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 
