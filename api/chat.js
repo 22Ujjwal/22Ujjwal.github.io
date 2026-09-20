@@ -163,7 +163,7 @@ function buildSystemPrompt(contextEntities, message, history) {
     recruiterDirective = `
 RECRUITER MODE ACTIVE:
 The user appears to be seriously interested (${recruiter.messageCount} messages exchanged, recruiter signals detected).
-Naturally work into your response something like: "Looks like you're seriously interested! Drop your email and I'll ping Ujjwal right now with your address and our full chat — he'll be in touch."
+Naturally work into your response something like: "Looks like you're seriously interested! Drop your email and I'll notify Ujjwal with our conversation so he can reach out directly."
 Make it feel organic, not forced. Only suggest it once per conversation — if you've already asked, don't repeat.`;
   }
 
@@ -394,10 +394,10 @@ function buildGeminiStreamRequest(systemPrompt, history, userMessage) {
       maxOutputTokens: 512,
     },
     safetySettings: [
-      { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-      { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-      { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-      { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+      { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
     ],
   };
 }
